@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bertin.com.br/sitemap.xml
