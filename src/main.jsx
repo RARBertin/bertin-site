@@ -244,7 +244,7 @@ function BertinLandingPage() {
               </div>
 
               <a
-                href="https://wa.me/34514888"
+                href="https://wa.me/554734514888"
                 className="inline-block bg-black text-white px-6 py-3 rounded-2xl font-semibold"
               >
                 Chamar no WhatsApp
