@@ -1,15 +1,50 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import arcelorLogo from './arcelor.png'
 
+// Sistemas internos disponíveis no menu "Acesso interno" — adicione novas
+// linhas aqui conforme novos apps forem entrando no ar.
+const SISTEMAS_INTERNOS = [
+  { nome: 'NetSuite', href: 'https://login.bertin.com.br' },
+  { nome: 'Financeiro', href: 'https://financeiro.bertin.com.br' },
+]
+
 function BertinLandingPage() {
+  const [menuAberto, setMenuAberto] = useState(false)
+
   return (
     <div className="min-h-screen bg-[#3D3935] text-white font-sans">
 
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#3D3935] via-[#2d2a27] to-black opacity-95" />
+
+        {/* Acesso interno — canto superior direito */}
+        <div className="absolute top-6 right-6 z-20">
+          <button
+            onClick={() => setMenuAberto((v) => !v)}
+            onBlur={() => setTimeout(() => setMenuAberto(false), 150)}
+            className="text-sm text-[#7C878E] hover:text-[#FF5C00] transition px-3 py-2 inline-flex items-center gap-1"
+          >
+            Acesso interno
+            <span className="text-xs">{menuAberto ? '▴' : '▾'}</span>
+          </button>
+
+          {menuAberto && (
+            <div className="absolute right-0 mt-2 w-52 bg-[#2d2a27] border border-white/10 rounded-xl shadow-2xl overflow-hidden z-20">
+              {SISTEMAS_INTERNOS.map((sistema) => (
+                <a
+                  key={sistema.nome}
+                  href={sistema.href}
+                  className="block px-4 py-3 text-sm text-[#C9CDD0] hover:bg-white/5 hover:text-[#FF5C00] transition"
+                >
+                  {sistema.nome}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
 
         <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-36 grid lg:grid-cols-2 gap-16 items-center">
           <div>
@@ -33,13 +68,6 @@ function BertinLandingPage() {
                 className="bg-[#FF5C00] hover:opacity-90 transition px-8 py-4 rounded-2xl text-lg font-semibold text-black shadow-2xl"
               >
                 Fale conosco
-              </a>
-
-              <a
-                href="https://login.bertin.com.br"
-                className="text-sm text-[#7C878E] hover:text-[#FF5C00] transition px-2 py-2"
-              >
-                Acesso interno
               </a>
             </div>
           </div>
