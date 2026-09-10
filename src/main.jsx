@@ -244,7 +244,7 @@ function BertinLandingPage() {
               </div>
 
               <a
-                href="https://wa.me/554734514888"
+                href="https://wa.me/34514888"
                 className="inline-block bg-black text-white px-6 py-3 rounded-2xl font-semibold"
               >
                 Chamar no WhatsApp
@@ -257,7 +257,7 @@ function BertinLandingPage() {
               </div>
 
               <div className="text-3xl font-black mb-3">
-                (47) 3319-9600
+                (49) 3319-9600
               </div>
 
               <div className="opacity-80 mb-6">
@@ -265,7 +265,7 @@ function BertinLandingPage() {
               </div>
 
               <a
-                href="https://wa.me/554733199600"
+                href="https://wa.me/5549984377092"
                 className="inline-block bg-black text-white px-6 py-3 rounded-2xl font-semibold"
               >
                 Chamar no WhatsApp
