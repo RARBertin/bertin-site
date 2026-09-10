@@ -208,23 +208,22 @@ function BertinLandingPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
             {[
-              'Construção Civil',
-              'Industrial',
-              'Atacado e Varejo',
-              'Corte & Dobra',
+              { nome: 'Construção Civil', descricao: 'Ferro e aço para todas as etapas da obra, com volume e prazo de entrega que acompanham o seu cronograma.' },
+              { nome: 'Industrial', descricao: 'Fornecimento constante para linhas de produção, com a qualidade ArcelorMittal que sua indústria exige.' },
+              { nome: 'Atacado e Varejo', descricao: 'Do pedido em grande escala à compra pontual — atendimento flexível para atacadistas e varejistas de qualquer porte.' },
+              { nome: 'Corte & Dobra', descricao: 'Material cortado e dobrado sob medida, pronto para aplicar — menos etapas, menos desperdício na sua obra.' },
             ].map((item) => (
 
               <div
-                key={item}
+                key={item.nome}
                 className="rounded-3xl border border-white/10 bg-white/5 p-8 hover:border-[#FF5C00]/40 transition"
               >
                 <div className="text-2xl font-bold mb-3">
-                  {item}
+                  {item.nome}
                 </div>
 
                 <div className="text-[#C9CDD0]">
-                  Atendimento com foco em qualidade,
-                  prazo e transparência.
+                  {item.descricao}
                 </div>
               </div>
 
