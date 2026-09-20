@@ -1,34 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# bertin.com.br — site institucional
 
-## Getting Started
+Página única da Ferro e Aço Bertin, distribuidora ArcelorMittal em Santa
+Catarina. **React + Vite + Tailwind.**
 
-First, run the development server:
+> O README anterior era o texto padrão do `create-next-app` e descrevia um
+> projeto Next.js, que este nunca foi. Substituído em 19/09/2026.
+
+## Onde está no ar
+
+| | |
+|---|---|
+| Endereços | `bertin.com.br` e `www.bertin.com.br` |
+| Hospedagem | **Cloudflare Pages**, projeto `bertin-site` |
+| Publicação | automática a cada `push` na branch `main` |
+| Prévia | `bertin-site.pages.dev` |
+
+Até 19/09/2026 o site ficava no Vercel. Foi migrado para o Cloudflare, que já
+hospedava `financeiro.bertin.com.br` e já era o DNS do domínio — um fornecedor
+a menos para administrar. O build gerado nos dois é o mesmo: o `vendor.js` saiu
+byte a byte idêntico, e o `index.js` só difere no hash do pedaço que ele
+importa.
+
+## Rodar local
 
 ```bash
-npm run dev
-# or
-yarn dev
+npm install
+npm run dev      # servidor de desenvolvimento
+npm run build    # gera dist/
+npm run serve    # confere o dist/ antes de publicar
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Use Node 16.** O projeto está em Vite 2 e React 17, de 2021, e não instala em
+Node novo. É essa a versão que o Cloudflare usa, fixada na variável de ambiente
+`NODE_VERSION` nas configurações do projeto Pages.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Isso é dívida técnica conhecida: o Node 16 não recebe mais atualização de
+segurança, e um dia o Cloudflare pode deixar de oferecê-lo. Quando isso
+apertar, o caminho é subir Vite e React de versão — o site é pequeno, ~310
+linhas num arquivo só.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Como o código está organizado
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Não está organizado, e é bom saber disso antes de abrir:
 
-## Learn More
+- **`src/main.jsx` tem o site inteiro** — as ~310 linhas de JSX, os textos e os
+  dados das seções. Não existe divisão em componentes.
+- `src/index.css` — Tailwind mais alguns estilos próprios.
+- `src/arcelor.png` — o logo da ArcelorMittal, usado na seção de parceria.
+- `index.html` — o HTML base, onde ficam `<title>`, a meta descrição e as tags
+  de Open Graph e Twitter Card.
+- `public/` — `robots.txt` e `sitemap.xml`, copiados para a raiz no build.
+- `vite.config.js` está **vazio**: o Vite roda no padrão, e é o padrão dele que
+  separa o `vendor.js` das bibliotecas.
 
-To learn more about Next.js, take a look at the following resources:
+Para mudar um texto do site, é em `src/main.jsx`. Para mudar o título ou a
+descrição que aparecem no Google e no WhatsApp, é em `index.html`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Pendência conhecida
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+`favicon.png` tem **1024×1024 e 1,1 MB**. Todo visitante baixa isso, e um
+favicon de 256×256 resolveria o mesmo em cerca de 3% do tamanho. Não foi
+mexido para não alterar um arquivo publicado sem necessidade — mas é a
+melhoria de desempenho mais fácil deste repositório.

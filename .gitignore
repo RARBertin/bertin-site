@@ -1,0 +1,11 @@
+# Dependências
+node_modules/
+
+# Saída do build — é gerada pelo `npm run build` e publicada pelo Cloudflare
+# Pages a cada push. Versionar isso já causou confusão: a pasta ficou no
+# repositório com um build de meses atrás, apontando para arquivos que não
+# existiam mais, e quem olhasse acharia que era o que estava no ar.
+dist/
+
+# macOS
+.DS_Store
