@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import arcelorLogo from './arcelor.png'
@@ -7,11 +7,27 @@ import arcelorLogo from './arcelor.png'
 // linhas aqui conforme novos apps forem entrando no ar.
 const SISTEMAS_INTERNOS = [
   { nome: 'NetSuite', href: 'https://login.bertin.com.br' },
-  { nome: 'Financeiro', href: 'https://financeiro.bertin.com.br' },
+  { nome: 'Portal', href: 'https://portal.bertin.com.br' },
+  { nome: 'Meu RH', href: 'https://rh.bertin.com.br' },
 ]
 
 function BertinLandingPage() {
   const [menuAberto, setMenuAberto] = useState(false)
+  const acessoRef = useRef(null)
+
+  // Fecha ao tocar fora ou com Esc. Antes fechava pelo onBlur do botão, e no
+  // iPhone o botão não recebe foco no toque: o menu ficava aberto.
+  useEffect(() => {
+    if (!menuAberto) return
+    const fora = (e) => { if (!acessoRef.current?.contains(e.target)) setMenuAberto(false) }
+    const tecla = (e) => { if (e.key === 'Escape') setMenuAberto(false) }
+    document.addEventListener('pointerdown', fora)
+    document.addEventListener('keydown', tecla)
+    return () => {
+      document.removeEventListener('pointerdown', fora)
+      document.removeEventListener('keydown', tecla)
+    }
+  }, [menuAberto])
 
   return (
     <div className="min-h-screen bg-[#3D3935] text-white font-sans">
@@ -21,18 +37,25 @@ function BertinLandingPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#3D3935] via-[#2d2a27] to-black opacity-95" />
 
         {/* Acesso interno — canto superior direito */}
-        <div className="absolute top-6 right-6 z-20">
+        <div
+          ref={acessoRef}
+          className="absolute top-6 right-6 z-20"
+          onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget)) setMenuAberto(false) }}
+        >
           <button
             onClick={() => setMenuAberto((v) => !v)}
-            onBlur={() => setTimeout(() => setMenuAberto(false), 150)}
+            aria-expanded={menuAberto}
             className="text-sm text-[#7C878E] hover:text-[#FF5C00] transition px-3 py-2 inline-flex items-center gap-1"
           >
             Acesso interno
             <span className="text-xs">{menuAberto ? '▴' : '▾'}</span>
           </button>
 
-          {menuAberto && (
-            <div className="absolute right-0 mt-2 w-52 bg-[#2d2a27] border border-white/10 rounded-xl shadow-2xl overflow-hidden z-20">
+          {/* Sempre montado: abre crescendo do canto do botão e fecha pelo mesmo caminho (index.css) */}
+          <div
+            className="menu-acesso absolute right-0 mt-2 w-52 bg-[#2d2a27] border border-white/10 rounded-xl shadow-2xl overflow-hidden z-20"
+            data-aberto={menuAberto}
+          >
               {SISTEMAS_INTERNOS.map((sistema) => (
                 <a
                   key={sistema.nome}
@@ -42,30 +65,29 @@ function BertinLandingPage() {
                   {sistema.nome}
                 </a>
               ))}
-            </div>
-          )}
+          </div>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-36 grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <div className="mb-6 inline-block border border-[#FF5C00]/40 rounded-full px-4 py-1 text-sm text-[#FF5C00] tracking-wide uppercase">
+            <div className="entra mb-6 inline-block border border-[#FF5C00]/40 rounded-full px-4 py-1 text-sm text-[#FF5C00] tracking-wide uppercase" style={{ '--i': 0 }}>
               Ferro • Aço • Soluções
             </div>
 
-            <h1 className="text-5xl lg:text-7xl font-black italic tracking-tight leading-none mb-8">
+            <h1 className="entra text-5xl lg:text-7xl font-black italic tracking-tight leading-none mb-8" style={{ '--i': 1 }}>
               BERTIN
             </h1>
 
-            <p className="text-xl lg:text-2xl text-[#C9CDD0] leading-relaxed max-w-2xl mb-10">
+            <p className="entra text-xl lg:text-2xl text-[#C9CDD0] leading-relaxed max-w-2xl mb-10" style={{ '--i': 2 }}>
               Empresa familiar com mais de 30 anos no mercado catarinense,
               atuando no fornecimento de ferro e aço para construção civil,
               indústria, agropecuária, atacado e varejo.
             </p>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="entra flex flex-wrap gap-4" style={{ '--i': 3 }}>
               <a
                 href="#contato"
-                className="bg-[#FF5C00] hover:opacity-90 transition px-8 py-4 rounded-2xl text-lg font-semibold text-black shadow-2xl"
+                className="botao botao-relevo bg-[#FF5C00] hover:opacity-90 px-8 py-4 rounded-2xl text-lg font-semibold text-black"
               >
                 Fale conosco
               </a>
@@ -73,10 +95,10 @@ function BertinLandingPage() {
           </div>
 
           <div>
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur p-8 shadow-2xl">
+            <div className="entra rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur p-8 shadow-2xl" style={{ '--i': 4 }}>
               <div className="grid grid-cols-2 gap-6">
 
-                <div className="bg-black/20 rounded-2xl p-6">
+                <div className="entra entra-numero bg-black/20 rounded-2xl p-6" style={{ '--j': 0 }}>
                   <div className="text-4xl font-black text-[#FF5C00] mb-2">
                     +30
                   </div>
@@ -86,7 +108,7 @@ function BertinLandingPage() {
                   </div>
                 </div>
 
-                <div className="bg-black/20 rounded-2xl p-6">
+                <div className="entra entra-numero bg-black/20 rounded-2xl p-6" style={{ '--j': 1 }}>
                   <div className="text-4xl font-black text-[#FF5C00] mb-2">
                     +150
                   </div>
@@ -96,7 +118,7 @@ function BertinLandingPage() {
                   </div>
                 </div>
 
-                <div className="bg-black/20 rounded-2xl p-6">
+                <div className="entra entra-numero bg-black/20 rounded-2xl p-6" style={{ '--j': 2 }}>
                   <div className="text-4xl font-black text-[#FF5C00] mb-2">
                     100+
                   </div>
@@ -106,7 +128,7 @@ function BertinLandingPage() {
                   </div>
                 </div>
 
-                <div className="bg-black/20 rounded-2xl p-6">
+                <div className="entra entra-numero bg-black/20 rounded-2xl p-6" style={{ '--j': 3 }}>
                   <div className="text-4xl font-black text-[#FF5C00] mb-2">
                     SC
                   </div>
@@ -194,7 +216,7 @@ function BertinLandingPage() {
       </section>
 
       {/* SEGMENTOS */}
-      <section className="border-t border-white/10 bg-black/10">
+      <section className="segmentos border-t border-white/10 bg-black/10">
         <div className="max-w-7xl mx-auto px-6 py-24">
 
           <div className="text-sm uppercase tracking-[0.2em] text-[#FF5C00] mb-4 text-center">
@@ -216,7 +238,7 @@ function BertinLandingPage() {
 
               <div
                 key={item.nome}
-                className="rounded-3xl border border-white/10 bg-white/5 p-8 hover:border-[#FF5C00]/40 transition"
+                className="segmento rounded-3xl border border-white/10 bg-white/5 p-8 hover:border-[#FF5C00]/40 transition"
               >
                 <div className="text-2xl font-bold mb-3">
                   {item.nome}
@@ -249,7 +271,7 @@ function BertinLandingPage() {
           <div className="flex flex-wrap justify-center gap-4 mb-10">
             <a
               href="mailto:contato@bertin.com.br"
-              className="bg-black text-white px-8 py-4 rounded-2xl text-lg font-semibold"
+              className="botao botao-relevo-laranja bg-black text-white px-8 py-4 rounded-2xl text-lg font-semibold"
             >
               contato@bertin.com.br
             </a>
@@ -272,7 +294,7 @@ function BertinLandingPage() {
 
               <a
                 href="https://wa.me/554734514888"
-                className="inline-block bg-black text-white px-6 py-3 rounded-2xl font-semibold"
+                className="botao botao-relevo-laranja inline-block bg-black text-white px-6 py-3 rounded-2xl font-semibold"
               >
                 Chamar no WhatsApp
               </a>
@@ -293,7 +315,7 @@ function BertinLandingPage() {
 
               <a
                 href="https://wa.me/5549984377092"
-                className="inline-block bg-black text-white px-6 py-3 rounded-2xl font-semibold"
+                className="botao botao-relevo-laranja inline-block bg-black text-white px-6 py-3 rounded-2xl font-semibold"
               >
                 Chamar no WhatsApp
               </a>

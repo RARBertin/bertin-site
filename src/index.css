@@ -7,3 +7,41 @@ body {
   font-family: Inter, sans-serif;
   background: #3D3935;
 }
+/* ---------------------------------------------------------------------------
+   Movimento e relevo — aprovados pelo Raffael em 28/09/2026 (método Emil
+   Kowalski e a maquete de neumorfismo). Para voltar ao site de antes basta
+   reverter o commit: nada aqui mexe em texto nem em estrutura.
+   --------------------------------------------------------------------------- */
+:root { --curva-saida: cubic-bezier(0.23, 1, 0.32, 1); }
+
+/* "Fale conosco" desce suave até o Contato (quem pede menos movimento, pula) */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Entrada do topo, uma vez: selo, BERTIN, texto, botão e painel em sequência
+   de 60 ms; os quatro números entram em cascata de 50 ms depois do painel.
+   Animação CSS: roda fora da thread principal e não engasga no carregamento. */
+@keyframes entra { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.entra { animation: entra 500ms var(--curva-saida) both; animation-delay: calc(var(--i, 0) * 60ms); }
+.entra-numero { animation-delay: calc(300ms + var(--j, 0) * 50ms); }
+@media (prefers-reduced-motion: reduce) {
+  @keyframes entra { from { opacity: 0; } to { opacity: 1; } }
+}
+
+/* Botões: afundam um pouco no toque (antes não davam sinal nenhum) */
+.botao { display: inline-block; transition: transform 160ms var(--curva-saida), opacity 150ms ease; touch-action: manipulation; }
+.botao:active { transform: scale(0.97); }
+/* relevo: "Fale conosco" sobre o marrom; e-mail e WhatsApp sobre o laranja */
+.botao-relevo { box-shadow: 8px 8px 18px rgba(0, 0, 0, .5), -6px -6px 16px rgba(255, 255, 255, .07); }
+.botao-relevo-laranja { box-shadow: 6px 6px 14px rgba(170, 55, 0, .6), -5px -5px 12px rgba(255, 150, 90, .5); }
+
+/* Menu "Acesso interno": cresce do canto do botão e fecha pelo mesmo caminho */
+.menu-acesso { transform-origin: top right; transition: opacity 200ms var(--curva-saida), transform 200ms var(--curva-saida), visibility 0s; }
+.menu-acesso[data-aberto="false"] { opacity: 0; transform: scale(0.95); visibility: hidden; pointer-events: none;
+  transition: opacity 150ms var(--curva-saida), transform 150ms var(--curva-saida), visibility 0s linear 150ms; }
+
+/* Segmentos em relevo, só no celular (fundo liso da mesma cor, sem borda) */
+@media (max-width: 767px) {
+  .segmentos { background: #3D3935; }
+  .segmento { background: #3D3935; border-color: transparent; box-shadow: 10px 10px 22px rgba(0, 0, 0, .5), -8px -8px 20px rgba(255, 255, 255, .06); }
+}
