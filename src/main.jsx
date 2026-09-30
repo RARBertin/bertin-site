@@ -185,8 +185,6 @@ function BertinLandingPage() {
               alt="ArcelorMittal"
               className="w-[260px] lg:w-[420px] opacity-95"
             />
-
-            <div className="mt-8 h-[2px] w-32 bg-white/40 rounded-full" />
           </div>
 
           <div>
