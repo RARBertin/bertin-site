@@ -16,9 +16,8 @@ const SISTEMAS_INTERNOS = [
 function BertinLandingPage() {
   const [menuAberto, setMenuAberto] = useState(false)
   const acessoRef = useRef(null)
-  const sobreRef = useRef(null)
 
-  // Parallax leve do topo e entrada do vergalhão do "Sobre". Só grava duas
+  // Parallax leve do topo e entrada dos vergalhões do Sobre/Segmentos. Só grava duas
   // variáveis CSS por quadro; quem pede menos movimento fica com tudo parado.
   useEffect(() => {
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return
@@ -27,11 +26,11 @@ function BertinLandingPage() {
     const atualiza = () => {
       pendente = false
       raiz.style.setProperty('--rolagem', Math.min(window.scrollY, 900))
-      const caixa = sobreRef.current?.getBoundingClientRect()
-      if (caixa) {
-        const p = Math.max(0, Math.min(1, (window.innerHeight - caixa.top) / (window.innerHeight * 0.9)))
-        sobreRef.current.style.setProperty('--p', p.toFixed(3))
-      }
+      document.querySelectorAll('[data-entra]').forEach((el) => {
+        const caixa = el.getBoundingClientRect()
+        const p = Math.max(0, Math.min(1, (window.innerHeight - caixa.top) / (window.innerHeight * 0.8)))
+        el.style.setProperty('--p', p.toFixed(3))
+      })
     }
     const rolou = () => { if (!pendente) { pendente = true; requestAnimationFrame(atualiza) } }
     window.addEventListener('scroll', rolou, { passive: true })
@@ -170,39 +169,6 @@ function BertinLandingPage() {
         </div>
       </section>
 
-      {/* SOBRE */}
-      <section ref={sobreRef} className="relative overflow-hidden border-t border-white/10">
-        {/* Vergalhão em diagonal, como no timbrado: entra pela direita ao rolar */}
-        <img src={vergalhaoDiagonal} alt="" aria-hidden="true" className="vergalhao-diagonal" />
-        <div className="relative max-w-7xl mx-auto px-6 py-24 lg:pb-36 grid lg:grid-cols-2 gap-16 items-center">
-
-          <div>
-            <div className="text-sm uppercase tracking-[0.2em] text-[#FF5C00] mb-4">
-              Sobre a Bertin
-            </div>
-
-            <h2 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight">
-              Tradição, estrutura e atendimento próximo ao cliente.
-            </h2>
-          </div>
-
-          <div className="space-y-6 text-lg text-[#C9CDD0] leading-relaxed">
-            <p>
-              Atuamos no fornecimento e distribuição de ferro e aço para
-              construção civil, indústria, agropecuária, atacado e varejo,
-              com operações em Joinville e Chapecó.
-            </p>
-
-            <p>
-              Contamos com estrutura operacional integrada, atendimento próximo
-              e soluções em corte e dobra voltadas especialmente para a
-              construção civil e o setor industrial.
-            </p>
-          </div>
-
-        </div>
-      </section>
-
       {/* PARCERIA ARCELORMITTAL */}
       <section className="bg-[#FF5C00] text-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 py-24 lg:py-32 grid lg:grid-cols-2 gap-16 items-center">
@@ -241,9 +207,39 @@ function BertinLandingPage() {
         </div>
       </section>
 
-      {/* SEGMENTOS */}
-      <section className="segmentos border-t border-white/10 bg-black/10">
-        <div className="max-w-7xl mx-auto px-6 py-24">
+      {/* SOBRE + SEGMENTOS — mesmo fundo, um bloco só, com dois vergalhões em
+          diagonal como no timbrado: um entra pela direita, o outro pela esquerda */}
+      <section className="segmentos relative overflow-hidden">
+        <img src={vergalhaoDiagonal} alt="" aria-hidden="true" data-entra className="vergalhao-diagonal vergalhao-direita" />
+        <img src={vergalhaoDiagonal} alt="" aria-hidden="true" data-entra className="vergalhao-diagonal vergalhao-esquerda" />
+        <div className="relative max-w-7xl mx-auto px-6 pt-24 pb-16 grid lg:grid-cols-2 gap-16 items-center">
+
+          <div>
+            <div className="text-sm uppercase tracking-[0.2em] text-[#FF5C00] mb-4">
+              Sobre a Bertin
+            </div>
+
+            <h2 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight">
+              Tradição, estrutura e atendimento próximo ao cliente.
+            </h2>
+          </div>
+
+          <div className="space-y-6 text-lg text-[#C9CDD0] leading-relaxed">
+            <p>
+              Atuamos no fornecimento e distribuição de ferro e aço para
+              construção civil, indústria, agropecuária, atacado e varejo,
+              com operações em Joinville e Chapecó.
+            </p>
+
+            <p>
+              Contamos com estrutura operacional integrada, atendimento próximo
+              e soluções em corte e dobra voltadas especialmente para a
+              construção civil e o setor industrial.
+            </p>
+          </div>
+
+        </div>
+        <div className="relative max-w-7xl mx-auto px-6 pt-8 pb-24 lg:pb-32">
 
           <div className="text-sm uppercase tracking-[0.2em] text-[#FF5C00] mb-4 text-center">
             Segmentos atendidos

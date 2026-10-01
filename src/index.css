@@ -57,12 +57,19 @@ html { scroll-behavior: smooth; }
   transform: translateY(calc(var(--rolagem, 0) * 0.25px));
 }
 .vergalhao-diagonal {
-  position: absolute; right: -8%; bottom: -30px; width: min(760px, 95vw);
+  position: absolute; width: min(760px, 95vw);
   opacity: .16; pointer-events: none;
-  transform: translateX(calc((1 - var(--p, 1)) * 40%)) rotate(-9deg);
 }
-@media (max-width: 1023px) { .vergalhao-diagonal { opacity: .1; bottom: -10px; } }
+/* ao lado do texto do Sobre, entrando pela direita */
+.vergalhao-direita { right: -8%; top: 300px; transform: translateX(calc((1 - var(--p, 1)) * 40%)) rotate(-9deg); }
+/* atrás do fim dos Segmentos, espelhado, entrando pela esquerda */
+.vergalhao-esquerda { left: -10%; bottom: -40px; transform: translateX(calc((1 - var(--p, 1)) * -40%)) scaleX(-1) rotate(-9deg); }
+@media (max-width: 1023px) {
+  .vergalhao-diagonal { opacity: .1; }
+  .vergalhao-direita { top: auto; bottom: 45%; }
+}
 @media (prefers-reduced-motion: reduce) {
   .vergalhao-topo { transform: none; }
-  .vergalhao-diagonal { transform: rotate(-9deg); }
+  .vergalhao-direita { transform: rotate(-9deg); }
+  .vergalhao-esquerda { transform: scaleX(-1) rotate(-9deg); }
 }
