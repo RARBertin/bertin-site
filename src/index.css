@@ -65,8 +65,21 @@ html { scroll-behavior: smooth; }
 /* atrás dos cartões dos Segmentos, espelhado, entrando pela esquerda */
 .vergalhao-esquerda { left: -10%; top: 380px; transform: translateX(calc((1 - var(--p, 1)) * -40%)) scaleX(-1) rotate(-9deg); }
 @media (max-width: 1023px) {
-  .vergalhao-diagonal { opacity: .1; }
-  .vergalhao-esquerda { top: 45%; }
+  .vergalhao-diagonal { opacity: .2; width: 140vw; }
+  /* no celular o bloco é comprido: um vergalhão logo no começo, outro no fim */
+  .vergalhao-esquerda { top: 40px; left: -30%; }
+  .vergalhao-direita { right: -30%; }
+}
+/* No celular o topo é alto e estreito: com "cover" a foto ficava ampliada
+   demais e não se via que era vergalhão. Mostra a barra inteira, mais de
+   longe, numa faixa da primeira tela, com as bordas esmaecidas. */
+@media (max-width: 767px) {
+  .vergalhao-topo {
+    background-size: 230% auto; background-position: 60% 70%;
+    opacity: .26;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 35%, #000 50%, #000 72%, transparent 85%);
+            mask-image: linear-gradient(to bottom, transparent 35%, #000 50%, #000 72%, transparent 85%);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .vergalhao-topo { transform: none; }
