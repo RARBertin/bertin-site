@@ -45,3 +45,24 @@ html { scroll-behavior: smooth; }
   .segmentos { background: #3D3935; }
   .segmento { background: #3D3935; border-color: transparent; box-shadow: 10px 10px 22px rgba(0, 0, 0, .5), -8px -8px 20px rgba(255, 255, 255, .06); }
 }
+
+/* Vergalhão de fundo — 01/10/2026, inspirado no timbrado antigo da Bertinaço.
+   Fotos do portal Conexão da ArcelorMittal (somos distribuidor autorizado). */
+.vergalhao-topo {
+  position: absolute; inset: 0; pointer-events: none;
+  background-position: right center; background-size: cover; background-repeat: no-repeat;
+  opacity: .2;
+  -webkit-mask-image: linear-gradient(to left, #000 20%, transparent 80%);
+          mask-image: linear-gradient(to left, #000 20%, transparent 80%);
+  transform: translateY(calc(var(--rolagem, 0) * 0.25px));
+}
+.vergalhao-diagonal {
+  position: absolute; right: -8%; bottom: -30px; width: min(760px, 95vw);
+  opacity: .16; pointer-events: none;
+  transform: translateX(calc((1 - var(--p, 1)) * 40%)) rotate(-9deg);
+}
+@media (max-width: 1023px) { .vergalhao-diagonal { opacity: .1; bottom: -10px; } }
+@media (prefers-reduced-motion: reduce) {
+  .vergalhao-topo { transform: none; }
+  .vergalhao-diagonal { transform: rotate(-9deg); }
+}

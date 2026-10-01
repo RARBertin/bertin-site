@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import arcelorLogo from './arcelor.png'
+import vergalhaoTopo from './vergalhao-topo.webp'
+import vergalhaoDiagonal from './vergalhao-diagonal.webp'
 
 // Sistemas internos disponíveis no menu "Acesso interno" — adicione novas
 // linhas aqui conforme novos apps forem entrando no ar.
@@ -14,6 +16,28 @@ const SISTEMAS_INTERNOS = [
 function BertinLandingPage() {
   const [menuAberto, setMenuAberto] = useState(false)
   const acessoRef = useRef(null)
+  const sobreRef = useRef(null)
+
+  // Parallax leve do topo e entrada do vergalhão do "Sobre". Só grava duas
+  // variáveis CSS por quadro; quem pede menos movimento fica com tudo parado.
+  useEffect(() => {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const raiz = document.documentElement
+    let pendente = false
+    const atualiza = () => {
+      pendente = false
+      raiz.style.setProperty('--rolagem', Math.min(window.scrollY, 900))
+      const caixa = sobreRef.current?.getBoundingClientRect()
+      if (caixa) {
+        const p = Math.max(0, Math.min(1, (window.innerHeight - caixa.top) / (window.innerHeight * 0.9)))
+        sobreRef.current.style.setProperty('--p', p.toFixed(3))
+      }
+    }
+    const rolou = () => { if (!pendente) { pendente = true; requestAnimationFrame(atualiza) } }
+    window.addEventListener('scroll', rolou, { passive: true })
+    atualiza()
+    return () => window.removeEventListener('scroll', rolou)
+  }, [])
 
   // Fecha ao tocar fora ou com Esc. Antes fechava pelo onBlur do botão, e no
   // iPhone o botão não recebe foco no toque: o menu ficava aberto.
@@ -35,6 +59,8 @@ function BertinLandingPage() {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#3D3935] via-[#2d2a27] to-black opacity-95" />
+        {/* Close do vergalhão ArcelorMittal, quase apagado, sumindo por trás do texto */}
+        <div className="vergalhao-topo" style={{ backgroundImage: `url(${vergalhaoTopo})` }} aria-hidden="true" />
 
         {/* Acesso interno — canto superior direito */}
         <div
@@ -145,8 +171,10 @@ function BertinLandingPage() {
       </section>
 
       {/* SOBRE */}
-      <section className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16 items-center">
+      <section ref={sobreRef} className="relative overflow-hidden border-t border-white/10">
+        {/* Vergalhão em diagonal, como no timbrado: entra pela direita ao rolar */}
+        <img src={vergalhaoDiagonal} alt="" aria-hidden="true" className="vergalhao-diagonal" />
+        <div className="relative max-w-7xl mx-auto px-6 py-24 lg:pb-36 grid lg:grid-cols-2 gap-16 items-center">
 
           <div>
             <div className="text-sm uppercase tracking-[0.2em] text-[#FF5C00] mb-4">
