@@ -60,13 +60,13 @@ html { scroll-behavior: smooth; }
   position: absolute; width: min(760px, 95vw);
   opacity: .16; pointer-events: none;
 }
-/* ao lado do texto do Sobre, entrando pela direita */
-.vergalhao-direita { right: -8%; top: 300px; transform: translateX(calc((1 - var(--p, 1)) * 40%)) rotate(-9deg); }
-/* atrás do fim dos Segmentos, espelhado, entrando pela esquerda */
-.vergalhao-esquerda { left: -10%; bottom: -40px; transform: translateX(calc((1 - var(--p, 1)) * -40%)) scaleX(-1) rotate(-9deg); }
+/* ao lado do texto do Sobre (embaixo), entrando pela direita */
+.vergalhao-direita { right: -8%; bottom: -40px; transform: translateX(calc((1 - var(--p, 1)) * 40%)) rotate(-9deg); }
+/* atrás dos cartões dos Segmentos, espelhado, entrando pela esquerda */
+.vergalhao-esquerda { left: -10%; top: 380px; transform: translateX(calc((1 - var(--p, 1)) * -40%)) scaleX(-1) rotate(-9deg); }
 @media (max-width: 1023px) {
   .vergalhao-diagonal { opacity: .1; }
-  .vergalhao-direita { top: auto; bottom: 45%; }
+  .vergalhao-esquerda { top: 45%; }
 }
 @media (prefers-reduced-motion: reduce) {
   .vergalhao-topo { transform: none; }

@@ -207,39 +207,12 @@ function BertinLandingPage() {
         </div>
       </section>
 
-      {/* SOBRE + SEGMENTOS — mesmo fundo, um bloco só, com dois vergalhões em
+      {/* SEGMENTOS + SOBRE — mesmo fundo, um bloco só, com dois vergalhões em
           diagonal como no timbrado: um entra pela direita, o outro pela esquerda */}
       <section className="segmentos relative overflow-hidden">
         <img src={vergalhaoDiagonal} alt="" aria-hidden="true" data-entra className="vergalhao-diagonal vergalhao-direita" />
         <img src={vergalhaoDiagonal} alt="" aria-hidden="true" data-entra className="vergalhao-diagonal vergalhao-esquerda" />
-        <div className="relative max-w-7xl mx-auto px-6 pt-24 pb-16 grid lg:grid-cols-2 gap-16 items-center">
-
-          <div>
-            <div className="text-sm uppercase tracking-[0.2em] text-[#FF5C00] mb-4">
-              Sobre a Bertin
-            </div>
-
-            <h2 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight">
-              Tradição, estrutura e atendimento próximo ao cliente.
-            </h2>
-          </div>
-
-          <div className="space-y-6 text-lg text-[#C9CDD0] leading-relaxed">
-            <p>
-              Atuamos no fornecimento e distribuição de ferro e aço para
-              construção civil, indústria, agropecuária, atacado e varejo,
-              com operações em Joinville e Chapecó.
-            </p>
-
-            <p>
-              Contamos com estrutura operacional integrada, atendimento próximo
-              e soluções em corte e dobra voltadas especialmente para a
-              construção civil e o setor industrial.
-            </p>
-          </div>
-
-        </div>
-        <div className="relative max-w-7xl mx-auto px-6 pt-8 pb-24 lg:pb-32">
+        <div className="relative max-w-7xl mx-auto px-6 pt-24 pb-16">
 
           <div className="text-sm uppercase tracking-[0.2em] text-[#FF5C00] mb-4 text-center">
             Segmentos atendidos
@@ -275,10 +248,37 @@ function BertinLandingPage() {
 
           </div>
         </div>
+        <div className="relative max-w-7xl mx-auto px-6 pt-8 pb-24 lg:pb-32 grid lg:grid-cols-2 gap-16 items-center">
+
+          <div>
+            <div className="text-sm uppercase tracking-[0.2em] text-[#FF5C00] mb-4">
+              Sobre a Bertin
+            </div>
+
+            <h2 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight">
+              Tradição, estrutura e atendimento próximo ao cliente.
+            </h2>
+          </div>
+
+          <div className="space-y-6 text-lg text-[#C9CDD0] leading-relaxed">
+            <p>
+              Atuamos no fornecimento e distribuição de ferro e aço para
+              construção civil, indústria, agropecuária, atacado e varejo,
+              com operações em Joinville e Chapecó.
+            </p>
+
+            <p>
+              Contamos com estrutura operacional integrada, atendimento próximo
+              e soluções em corte e dobra voltadas especialmente para a
+              construção civil e o setor industrial.
+            </p>
+          </div>
+
+        </div>
       </section>
 
       {/* CONTATO */}
-      <section id="contato" className="bg-[#FF5C00] text-black">
+      <section id="contato" className="bg-[#FF5C00] text-white">
         <div className="max-w-7xl mx-auto px-6 py-20 text-center">
 
           <h2 className="text-4xl lg:text-5xl font-black mb-6">
