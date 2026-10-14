@@ -341,6 +341,11 @@ function BertinLandingPage() {
               >
                 Chamar no WhatsApp
               </a>
+
+              <div className="mt-6 text-xs opacity-70 leading-relaxed">
+                Bertin Administradora de Bens Ltda<br />
+                CNPJ 10.925.438/0001-34
+              </div>
             </div>
 
           </div>
