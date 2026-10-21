@@ -8,7 +8,6 @@ import vergalhaoDiagonal from './vergalhao-diagonal.webp'
 // Sistemas internos disponíveis no menu "Acesso interno" — adicione novas
 // linhas aqui conforme novos apps forem entrando no ar.
 const SISTEMAS_INTERNOS = [
-  { nome: 'NetSuite', href: 'https://login.bertin.com.br' },
   { nome: 'Portal', href: 'https://portal.bertin.com.br' },
   { nome: 'Meu RH', href: 'https://rh.bertin.com.br' },
 ]
@@ -336,7 +335,7 @@ function BertinLandingPage() {
               </div>
 
               <a
-                href="https://wa.me/5549984377092"
+                href="https://wa.me/554933199600"
                 className="botao botao-relevo-laranja inline-block bg-black text-white px-6 py-3 rounded-2xl font-semibold"
               >
                 Chamar no WhatsApp
