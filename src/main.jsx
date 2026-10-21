@@ -344,6 +344,10 @@ function BertinLandingPage() {
             </div>
 
           </div>
+
+          <div className="mt-10 text-sm opacity-70">
+            <a href="/privacidade.html" className="underline">Política de Privacidade</a>
+          </div>
         </div>
       </section>
 
