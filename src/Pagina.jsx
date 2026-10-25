@@ -400,20 +400,36 @@ export default function BertinLandingPage() {
             </div>
 
             <h2 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight">
-              Uma família no aço, em Joinville desde 1994.
+              Daqui, para quem constrói aqui.
             </h2>
+
+            {/* 319 mil t de construção civil vendidas pelos escritórios 124 e 155
+                (amb_vendas_itens, Joinville desde 2004 e Chapecó desde 2010),
+                calculado em 25/10/2026; Raffael autorizou "mais de 320 mil" porque
+                Joinville vende desde 1994 e Chapecó desde 2007, antes dos dados */}
+            <div className="border-l-4 border-marca pl-5">
+              <div className="text-5xl lg:text-6xl font-black text-marca leading-none mb-2">
+                +320 mil
+              </div>
+              <div className="text-xl font-semibold leading-snug">
+                toneladas de aço já viraram obra em Santa Catarina.
+              </div>
+              <div className="text-lg text-[#C9CDD0] mt-1">
+                Tem um pedaço da história da Bertin em cada canto do estado.
+              </div>
+            </div>
           </div>
 
           <div className="space-y-6 text-lg text-[#C9CDD0] leading-relaxed">
             <p>
-              A história começou com o aço em Londrina e Maringá, no Paraná.
-              Em 1994 a Bertin abriu em Joinville e cresceu junto com quem
-              constrói em Santa Catarina. Desde 2004 é distribuidor ArcelorMittal.
+              Desde 1994 em Joinville, e hoje também em Chapecó, a Bertin
+              cresceu junto com as obras, as fábricas e as revendas de
+              Santa Catarina.
             </p>
 
             <p>
-              Hoje são duas unidades, em Joinville e em Chapecó, uma equipe de
-              mais de 100 pessoas e frota própria para levar o aço até a obra.
+              São mais de 100 pessoas, frota própria e a parceria com a
+              ArcelorMittal desde 2004 para levar aço de usina até a sua obra.
             </p>
           </div>
 
