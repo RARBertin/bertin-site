@@ -160,10 +160,10 @@ As mudanças estão na ordem pedida. Cada uma é feita numa branch, com capturas
 | Selo do topo | "Ferro • Aço • Soluções" | **"Distribuidor ArcelorMittal"** |
 | Botão do topo | texto preto sobre o laranja | texto branco em negrito |
 
-Proposta para o novo Sobre (rascunho; o texto final depende da história que o Marcelo vai contar):
+Sobre (25/10, pedido do Raffael: falar de nós aqui, sem a história de fora):
 
-> **Uma família no aço, em Joinville desde 1994.**
-> A história começou com o aço em Londrina e Maringá, no Paraná. Em 1994 a Bertin abriu em Joinville e cresceu junto com quem constrói em Santa Catarina. Desde 2004 é distribuidor ArcelorMittal. Hoje são duas unidades, em Joinville e em Chapecó, uma equipe de mais de 100 pessoas e frota própria para levar o aço até a obra.
+> **Daqui, para quem constrói aqui.**
+> Desde 1994 em Joinville, e hoje também em Chapecó, a Bertin cresceu junto com as obras, as fábricas e as revendas de Santa Catarina. São mais de 100 pessoas, frota própria e a parceria com a ArcelorMittal desde 2004 para levar aço de usina até a sua obra.
 
 Correção em relação à versão 1: a Bertin **não nasceu em SC**. O tio do Raffael começou em Londrina e Maringá, o pai dele abriu Joinville em 1994, e depois a família cresceu. A empresa começou 100% Gerdau, teve a ArcelorMittal como fornecedor principal por 3 a 4 anos e virou distribuidor em 2004. O texto do topo ("30 anos no mercado catarinense") está certo.
 
