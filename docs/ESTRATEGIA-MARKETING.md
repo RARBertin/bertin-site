@@ -1,14 +1,14 @@
 # Estratégia de marketing da Bertin
 
-Versão 1, de 25/10/2026, **para aprovação do Raffael**. A pesquisa completa dos concorrentes, com as fontes, está em [CONCORRENTES-2026-10.md](CONCORRENTES-2026-10.md).
+Versão 2, de 25/10/2026, **para aprovação do Raffael**. Já inclui as respostas dele à versão 1. A pesquisa completa dos concorrentes, com as fontes, está em [CONCORRENTES-2026-10.md](CONCORRENTES-2026-10.md).
 
 ---
 
 ## Resumo em 5 linhas
 
 1. **Quem somos:** o distribuidor ArcelorMittal que está perto da obra, no norte e no oeste de SC.
-2. **Para quem falamos primeiro:** a construção civil, que mais pesa hoje e é o segmento que queremos fazer crescer.
-3. **Por que nos escolhem:** prazo e entrega com frota própria, e corte e dobra.
+2. **Para quem falamos primeiro:** a construção civil, que é de 60% a 70% das vendas e sempre foi a base. A segunda frente é **indústria e planos** (chapas e bobinas), onde temos ganhado mercado.
+3. **Por que nos escolhem:** prazo e entrega com frota própria, e corte e dobra. **Não disputamos por preço:** com a política comercial atual da AMB, o preço é o nosso ponto fraco, e o mix também precisa melhorar.
 4. **Frase principal (fica):** "Aço de usina, entregue por quem está perto."
 5. **Como falamos:** direto e próximo, como um vendedor que conhece a obra.
 
@@ -16,15 +16,17 @@ Versão 1, de 25/10/2026, **para aprovação do Raffael**. A pesquisa completa d
 
 ## 1. Posicionamento
 
-> Para quem compra aço no norte e no oeste de Santa Catarina, a Bertin é o **distribuidor ArcelorMittal que está perto**: tem frota própria para entregar e corte e dobra para a obra receber o aço pronto. Atende há mais de 30 anos como empresa familiar.
+> Para quem compra aço no norte e no oeste de Santa Catarina, a Bertin é o **distribuidor ArcelorMittal que está perto**: tem frota própria para entregar e corte e dobra para a obra receber o aço pronto. É uma empresa de família no aço, em Joinville desde 1994.
+
+**Uma consequência importante:** como o preço não é o nosso forte, nenhuma peça fala em "melhor preço" ou "preço baixo". Vendemos o custo total da obra: aço no dia certo, sem perda no canteiro, sem retrabalho, com um vendedor que resolve.
 
 **Contra quem nos posicionamos:**
 
 | Concorrente | Como ele se vende | Nossa resposta |
 |---|---|---|
 | Comercial Gerdau (lojas em Joinville e Chapecó) | Marca nacional, cotação online, 0800 e WhatsApp nacional | **Atendimento da região.** Quem responde conhece a cidade e a obra, e a entrega sai com a nossa frota. |
-| Giassi (forte em Chapecó) | Escala ("uma das maiores de SC", 20 mil t/ano) | **Pronto para a obra.** Temos corte e dobra em Chapecó, que a Giassi nem cita no site. |
-| Scaini (Joinville) | "Referência", desde 1987 | **Prova no lugar do adjetivo.** Mostramos números e processo em vez de dizer "referência". |
+| Giassi (forte em Chapecó) | Escala ("uma das maiores de SC", 20 mil t/ano). Entrou forte com aço importado, incomodou bastante e cresceu muito em SC. | **Pronto para a obra e aço de usina nacional.** Temos corte e dobra em Chapecó, que a Giassi nem cita no site, e procedência ArcelorMittal, sem depender de importação. |
+| Scaini (Joinville) | "Referência", desde 1987. Era pequena, já comprou da Bertin e cresceu muito. É concorrente forte. | **Prova no lugar do adjetivo.** Mostramos números e processo em vez de dizer "referência". |
 | Varejo (Leroy, Cassol, Telhanorte) | Preço no site, Pix, retirada | Não disputamos a barra avulsa. Atendemos quem compra para a obra inteira. |
 
 **O que não dizemos nunca:**
@@ -39,14 +41,14 @@ A frase "Distribuidor exclusivo ArcelorMittal na sua região", que já está no 
 
 ## 2. Cliente ideal por segmento
 
-Ordem de esforço: **construção civil** primeiro, depois indústria e revendas. Agropecuária fica só com o cartão no site, sem campanha própria.
+Ordem de esforço: **construção civil** primeiro (60% a 70% das vendas), depois **indústria e planos**, que estão crescendo, e por último as revendas. A agropecuária sai do foco (ver a seção 2.4).
 
 ### 2.1 Construção civil (prioridade)
 
 - **Quem é:** construtora pequena ou média, empreiteiro, armador, mestre de obras, engenheiro ou arquiteto que especifica. Em Joinville, Jaraguá e litoral norte, e em Chapecó e no oeste.
 - **O que procura:**
   - vergalhão CA-50 e CA-60, tela soldada, treliça, arame recozido e prego;
-  - corte e dobra pelo projeto (em Chapecó);
+  - corte e dobra pelo projeto. É feito em Chapecó e atende Joinville também, com o custo do deslocamento. Quando compensa, há a opção do Belgo Pronto mais perto, mas a preferência é o nosso;
   - material na obra no dia certo da concretagem.
 - **O que faz decidir:**
   1. A entrega chega quando a obra precisa, porque atraso de aço para a concretagem e a equipe.
@@ -55,11 +57,13 @@ Ordem de esforço: **construção civil** primeiro, depois indústria e revendas
   4. Ter alguém que atende e resolve sem passar por 0800.
 - **Onde encontrar:** Google ("vergalhão Joinville", "corte e dobra Chapecó"), WhatsApp, indicação de engenheiro e armador, e visita do vendedor à obra.
 
-### 2.2 Indústria
+### 2.2 Indústria e planos (segunda frente, em crescimento)
 
-- **Quem é:** metalúrgica, fabricante de estruturas, implementos e máquinas. O contato é o comprador ou o dono.
-- **O que procura:** fornecimento regular de barras, perfis, tubos, chapas e fio-máquina, com certificado da usina.
-- **O que faz decidir:** regularidade (nunca faltar), procedência e certificado, prazo de pagamento e entrega programada.
+- **Quem é:** metalúrgica, serralheria grande, fabricante de estruturas, implementos e máquinas. O contato é o comprador ou o dono.
+- **O que procura:** **planos** (chapas e bobinas), tubos, barras, perfis e fio-máquina, com fornecimento regular e certificado da usina.
+- **O que faz decidir:** ter o item (mix), regularidade (nunca faltar), preço, procedência e certificado, prazo de pagamento e entrega programada.
+- **Onde estamos fracos:** mix e, às vezes, preço. O site não resolve isso: ele deve mostrar as linhas que temos de verdade e levar ao vendedor, sem prometer variedade que não temos.
+- **Concorrência:** em Joinville há outros players de indústria, tubos e planos que a pesquisa não cobriu. Paulo Rene e José Carlos vão indicar quais são (e-mail pedindo isso, em rascunho em 25/10).
 
 ### 2.3 Revendas (atacado e varejo)
 
@@ -67,11 +71,11 @@ Ordem de esforço: **construção civil** primeiro, depois indústria e revendas
 - **O que procura:** aço para revender, em lotes fracionados e com reposição rápida.
 - **O que faz decidir:** preço que deixa margem, entrega junto com a rota da região e crédito.
 
-### 2.4 Agropecuária (só o cartão no site)
+### 2.4 Agropecuária (fora do foco)
 
-- **Quem é:** produtor rural do oeste (aviário, pocilga, galpão, cerca).
-- **Mensagem do cartão:** aço e arame para cerca, galpão e aviário, entregues na propriedade.
-- Nenhum concorrente fala com esse público. Se um dia quiser crescer no agro, o espaço está livre.
+- A relação com a área de arames da AMB (BBA), que abastece o agro, está em crise. Por isso o agro deixou de ser foco, e menos ainda em Joinville.
+- **Proposta:** não criar o cartão de Agropecuária no site e tirar "campo" e "agropecuária" dos títulos. O agro continua só citado na lista de segmentos atendidos, sem destaque.
+- Nenhum concorrente fala com esse público. Se a relação com a BBA melhorar, o espaço continua livre.
 
 ---
 
@@ -85,17 +89,17 @@ Ordem de esforço: **construção civil** primeiro, depois indústria e revendas
 
 | Pilar | O que dizemos | Prova que já podemos mostrar |
 |---|---|---|
-| **Aço de usina** | Aço ArcelorMittal com procedência e certificado | Mais de 20 anos de parceria com a ArcelorMittal |
-| **Perto de você** | Duas unidades, vendedor da região, entrega com frota própria | Joinville e Chapecó; **+150 cidades atendidas**; **frota própria**; mais de 30 anos; mais de 100 profissionais |
-| **Pronto para a obra** | Corte e dobra pelo projeto, que reduz a perda e a mão de obra no canteiro | Corte e dobra em **Chapecó** |
+| **Aço de usina** | Aço ArcelorMittal com procedência e certificado | Distribuidor ArcelorMittal desde 2004, e fornecedor principal já alguns anos antes |
+| **Perto de você** | Duas unidades, vendedor da região, entrega com frota própria | Joinville e Chapecó; **+150 cidades atendidas**; **frota própria**; em Joinville desde 1994; mais de 100 profissionais |
+| **Pronto para a obra** | Corte e dobra pelo projeto, que reduz a perda e a mão de obra no canteiro | Corte e dobra próprio em **Chapecó**, que atende as duas regiões |
 
 ### Números autorizados para o site
 
-- +30 anos de mercado
-- +20 anos de parceria ArcelorMittal
+- +30 anos de mercado (Joinville abriu em 1994)
+- +20 anos de parceria ArcelorMittal (distribuidor desde 2004)
 - +150 cidades atendidas. O mapa da seção 3 do pedido vai confirmar esse número; se der outro, trocamos.
 - 100+ profissionais
-- Frota própria, sem número. Hoje são 18 veículos de carga nas transportadoras do grupo.
+- Frota própria, sem número. Hoje são 18 veículos de carga: 12 na Testoni, 5 na Ribas e 1 conjunto (cavalo e carreta) na Bertin Adm. Fotos da frota: o Raffael vai tentar conseguir.
 - 2 unidades: Joinville e Chapecó
 
 ### Números que ainda não usamos
@@ -120,7 +124,7 @@ Falamos como o vendedor bom da Bertin fala com o cliente: claro, curto e sem enr
 | Frases de até 20 palavras | Parágrafos longos repetindo a lista de segmentos |
 
 **Palavras da casa:** aço de usina, perto, obra, entrega, frota própria, corte e dobra, Distribuidor ArcelorMittal.
-**Palavras banidas:** soluções (no título), excelência, referência, líder, "só pela Bertin", DBA.
+**Palavras banidas:** soluções (no título), excelência, referência, líder, "só pela Bertin", DBA, "melhor preço", "preço baixo".
 
 **Regras visuais que valem para o texto:**
 
@@ -137,7 +141,7 @@ As mudanças estão na ordem pedida. Cada uma é feita numa branch, com capturas
 
 - De 6 a 8 linhas, cada uma com foto do Conexão ArcelorMittal, uma frase do que é e para que serve, e o botão **Cotar**, que abre o WhatsApp com o nome do produto.
 - **Antes de desenhar:** vou perguntar quais linhas vendemos de fato.
-- Proposta inicial para você cortar: vergalhão CA-50/CA-60, tela soldada, treliça, arame recozido, arame e tela para cerca, prego, corte e dobra (Chapecó) e barras, perfis e tubos para a indústria.
+- Proposta inicial para você cortar: vergalhão CA-50/CA-60, tela soldada, treliça, arame recozido e prego, corte e dobra, **planos (chapas e bobinas)**, tubos, e barras e perfis.
 
 ### 5.2 Mapa "Onde atendemos"
 
@@ -148,19 +152,22 @@ As mudanças estão na ordem pedida. Cada uma é feita numa branch, com capturas
 
 | Onde | Hoje | Proposta |
 |---|---|---|
-| Título de Segmentos | "Soluções para diferentes setores da indústria." | **"Aço para a obra, a fábrica, o campo e a revenda."** |
-| Novo cartão | (não existe) | **Agropecuária:** "Arame, tela e aço para cerca, galpão e aviário, entregues na propriedade." |
+| Título de Segmentos | "Soluções para diferentes setores da indústria." | **"Aço para a obra, a fábrica e a revenda."** |
+| Cartão Industrial | "Fornecimento constante para linhas de produção…" | **Indústria e planos:** "Chapas, bobinas, tubos e barras com certificado de usina, com entrega programada para a sua produção." |
+| Cartão de Agropecuária | (não existe) | **Não criar** (agro fora do foco). |
 | Painel de números, cartão "SC" | "SC / Joinville • Chapecó" | **"Frota própria / Entrega em Joinville, Chapecó e região"** |
 | Sobre | Repete a lista de segmentos e "atendimento próximo" | Texto novo, curto, sobre a **família e a história** (30 anos, duas unidades), sem repetir os segmentos. |
 | Selo do topo | "Ferro • Aço • Soluções" | **"Distribuidor ArcelorMittal"** |
 | Botão do topo | texto preto sobre o laranja | texto branco em negrito |
 
-Proposta para o novo Sobre:
+Proposta para o novo Sobre (rascunho; o texto final depende da história que o Marcelo vai contar):
 
-> **Uma empresa de família, há mais de 30 anos no aço.**
-> A Bertin nasceu em Santa Catarina e cresceu junto com quem constrói aqui. Hoje são duas unidades, em Joinville e em Chapecó, uma equipe de mais de 100 pessoas e frota própria para levar o aço até você.
+> **Uma família no aço, em Joinville desde 1994.**
+> A história começou com o aço em Londrina e Maringá, no Paraná. Em 1994 a Bertin abriu em Joinville e cresceu junto com quem constrói em Santa Catarina. Desde 2004 é distribuidor ArcelorMittal. Hoje são duas unidades, em Joinville e em Chapecó, uma equipe de mais de 100 pessoas e frota própria para levar o aço até a obra.
 
-Observação: no cartão de Corte & Dobra, vale dizer "feito em Chapecó". Falta você confirmar se o cliente de Joinville também recebe o corte e dobra feito lá.
+Correção em relação à versão 1: a Bertin **não nasceu em SC**. O tio do Raffael começou em Londrina e Maringá, o pai dele abriu Joinville em 1994, e depois a família cresceu. A empresa começou 100% Gerdau, teve a ArcelorMittal como fornecedor principal por 3 a 4 anos e virou distribuidor em 2004. O texto do topo ("30 anos no mercado catarinense") está certo.
+
+Cartão de Corte & Dobra: "Aço cortado e dobrado pelo seu projeto na nossa central de Chapecó, com entrega também na região de Joinville."
 
 ### 5.4 Depois (próximo trimestre, sem data)
 
@@ -188,13 +195,15 @@ Quando houver medida, estas promessas viram o argumento mais forte contra a Gerd
 
 | Pergunta | Resposta |
 |---|---|
-| Segmentos que mais pesam | Construção civil |
-| Segmento que deve crescer | Construção civil |
+| Segmentos que mais pesam | Construção civil (60% a 70%) |
+| Segmento que deve crescer | Construção civil; indústria e planos vêm ganhando mercado |
 | Por que nos escolhem | Prazo e entrega; corte e dobra |
-| Concorrentes principais | Comercial Gerdau, Giassi, Scaini |
+| Pontos fracos | Mix e preço (política comercial da AMB) |
+| Concorrentes principais | Comercial Gerdau, Giassi (aço importado), Scaini; em indústria e planos, a confirmar com Paulo Rene e José Carlos |
+| História | Tio em Londrina e Maringá; Joinville em 1994; 100% Gerdau no início; distribuidor ArcelorMittal desde 2004 |
 | Números liberados | Frota (sem número) e cidades atendidas |
 | Prazo de entrega no site | Não prometer |
 | Tempo de resposta | Ainda não prometer; deixar pronto para ligar depois da estatística |
-| Onde se faz o corte e dobra | Só em Chapecó |
+| Onde se faz o corte e dobra | Em Chapecó, atendendo Joinville também (com o custo do deslocamento) |
 | Tom de voz | Direto e próximo |
-| Agro | Só o cartão no site |
+| Agro | Fora do foco (crise com a BBA); proposta é não criar o cartão |
