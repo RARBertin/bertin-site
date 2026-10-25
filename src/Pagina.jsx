@@ -2,6 +2,10 @@ import React, { useState, useEffect, useRef } from 'react'
 import arcelorLogo from './arcelor.png'
 import vergalhaoTopo from './vergalhao-topo.webp'
 import vergalhaoDiagonal from './vergalhao-diagonal.webp'
+import fotoVergalhao from './produtos/vergalhao.webp'
+import fotoCorteDobra from './produtos/corte-e-dobra.webp'
+import fotoChapas from './produtos/chapas.webp'
+import fotoBobinas from './produtos/bobinas.webp'
 
 // Sistemas internos disponíveis no menu "Acesso interno" — adicione novas
 // linhas aqui conforme novos apps forem entrando no ar.
@@ -17,6 +21,17 @@ const UNIDADES = [
   { nome: 'Unidade Chapecó', cidade: 'Chapecó', telefone: '(49) 3319-9600', numero: '554933199600' },
 ]
 const whatsapp = (u) => `https://wa.me/${u.numero}?text=${MENSAGEM_COTACAO}`
+const whatsappProduto = (u, produto) =>
+  `https://wa.me/${u.numero}?text=${encodeURIComponent(`Olá! Vim pelo site da Bertin e gostaria de uma cotação de ${produto}.`)}`
+
+// Linhas escolhidas pelo Raffael em 25/10/2026 (estratégia v2). Fotos do
+// portal Conexão ArcelorMittal, recortadas em 800×500.
+const PRODUTOS = [
+  { nome: 'Vergalhão CA‑50 e CA‑60', pedido: 'vergalhão CA-50 e CA-60', foto: fotoVergalhao, descricao: 'Barra e rolo com a marca ArcelorMittal gravada e certificado da usina.' },
+  { nome: 'Corte e dobra', pedido: 'corte e dobra', foto: fotoCorteDobra, descricao: 'Vergalhão cortado e dobrado pelo seu projeto na nossa central de Chapecó, pronto para montar.' },
+  { nome: 'Chapas', pedido: 'chapas', foto: fotoChapas, descricao: 'Fina e grossa a quente, a frio, zincada e xadrez, para indústria e serralheria.' },
+  { nome: 'Bobinas', pedido: 'bobinas', foto: fotoBobinas, descricao: 'Aço plano em bobina para quem corta e conforma na própria fábrica.' },
+]
 
 export default function BertinLandingPage() {
   const [menuAberto, setMenuAberto] = useState(false)
@@ -24,6 +39,7 @@ export default function BertinLandingPage() {
   const topoRef = useRef(null)
   const contatoRef = useRef(null)
   const [barraVisivel, setBarraVisivel] = useState(false)
+  const [cotando, setCotando] = useState(null)
 
   // Barra de WhatsApp do celular: aparece depois do topo e some quando o
   // Contato está na tela, para não repetir os mesmos botões.
@@ -227,6 +243,65 @@ export default function BertinLandingPage() {
             </p>
           </div>
 
+        </div>
+      </section>
+
+      {/* PRODUTOS — "Cotar" troca o botão pelas duas unidades; o WhatsApp abre
+          com o nome do produto já escrito */}
+      <section id="produtos" className="bg-[#2d2a27]">
+        <div className="max-w-7xl mx-auto px-6 py-24">
+
+          <div className="text-sm font-semibold uppercase tracking-[0.2em] text-marca-clara mb-4 text-center">
+            Produtos
+          </div>
+
+          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-4">
+            Aço de usina para a obra e para a fábrica.
+          </h2>
+
+          <p className="text-lg text-[#C9CDD0] text-center max-w-2xl mx-auto mb-16">
+            Escolha o produto e fale com a unidade mais perto de você.
+          </p>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {PRODUTOS.map((p) => (
+              <div key={p.nome} className="segmento flex flex-col rounded-3xl border border-white/10 bg-white/5 overflow-hidden">
+                <img src={p.foto} alt={p.nome} width="800" height="500" loading="lazy" className="w-full aspect-[8/5] object-cover" />
+
+                <div className="flex flex-col flex-1 p-6">
+                  <div className="text-2xl font-bold mb-2">
+                    {p.nome}
+                  </div>
+
+                  <div className="text-[#C9CDD0] mb-6 flex-1">
+                    {p.descricao}
+                  </div>
+
+                  {cotando === p.nome ? (
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="col-span-2 text-sm text-[#C9CDD0]">Chamar no WhatsApp de:</div>
+                      {UNIDADES.map((u) => (
+                        <a
+                          key={u.nome}
+                          href={whatsappProduto(u, p.pedido)}
+                          className="botao texto-no-laranja bg-marca text-white font-bold text-[19px] rounded-xl py-3 text-center"
+                        >
+                          {u.cidade}
+                        </a>
+                      ))}
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => setCotando(p.nome)}
+                      className="botao texto-no-laranja bg-marca text-white font-bold text-[19px] rounded-xl py-3 w-full"
+                    >
+                      Cotar
+                    </button>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
