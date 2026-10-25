@@ -13,12 +13,32 @@ const PINOS = [
   { u: 'C', nome: 'Chapecó', x: 224, y: 231 },
 ]
 
+// Em Chapecó cada região tem o seu vendedor (planilha "Chapecó - Raffa Whatsapp",
+// aba 3). Região sem vendedor certo (Caçador vinha com o telefone arrastado no
+// Excel) fica fora daqui e cai na central da unidade, o 9600.
+const VENDEDOR_CHAPECO = {
+  'Chapecó': { nome: 'Oiller', numero: '554933199620' },
+  'São Lourenço do Oeste': { nome: 'Neimar', numero: '554933199618' },
+  'São Miguel do Oeste - BR 282': { nome: 'Neimar', numero: '554933199618' },
+  'São Miguel do Oeste - BR 283': { nome: 'Neimar', numero: '554933199618' },
+  'São Miguel do Oeste - SC 160': { nome: 'Neimar', numero: '554933199618' },
+  'Concórdia': { nome: 'Bruno', numero: '554933199617' },
+  'Xanxerê': { nome: 'Bruno', numero: '554933199617' },
+  'Joaçaba': { nome: 'Alex', numero: '554933199619' },
+}
+
 const sem = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim()
-const POR_IBGE = Object.fromEntries(CIDADES.map(([ibge, nome, u]) => [ibge, { ibge, nome, u }]))
+const POR_IBGE = Object.fromEntries(CIDADES.map(([ibge, nome, u, regiao]) =>
+  [ibge, { ibge, nome, u, vendedor: u === 'C' ? VENDEDOR_CHAPECO[regiao] : null }]))
 const POR_NOME = Object.fromEntries(CIDADES.map(([ibge, nome]) => [sem(nome), ibge]))
 
-const whatsappCidade = (u, cidade) =>
-  `https://wa.me/${UNIDADE[u].numero}?text=${encodeURIComponent(`Olá! Vim pelo site da Bertin. Sou de ${cidade} e gostaria de uma cotação.`)}`
+const mensagem = (cidade, produto) =>
+  encodeURIComponent(`Olá! Vim pelo site da Bertin. Sou de ${cidade} e gostaria de uma cotação${produto ? ` de ${produto}` : ''}.`)
+// Fora da lista, as linhas de aço são do distribuidor ArcelorMittal daquela
+// região; só o corte e dobra (feito em Chapecó) a Bertin pode atender.
+const whatsappCorteDobra = (cidade) => `https://wa.me/${UNIDADE.C.numero}?text=${mensagem(cidade, 'corte e dobra')}`
+// Cidade da lista: o vendedor da região quando há um; senão, a unidade
+const whatsappAtendida = (c) => `https://wa.me/${c.vendedor ? c.vendedor.numero : UNIDADE[c.u].numero}?text=${mensagem(c.nome)}`
 
 export default function OndeAtendemos() {
   const [mapa, setMapa] = useState(null)
@@ -85,9 +105,10 @@ export default function OndeAtendemos() {
                 </div>
                 <div className="text-[#C9CDD0] mb-4">
                   Atendida pela <span className="text-white font-semibold">{UNIDADE[escolhida.u].nome}</span>
+                  {escolhida.vendedor && <>, com o vendedor <span className="text-white font-semibold">{escolhida.vendedor.nome}</span></>}
                 </div>
                 <a
-                  href={whatsappCidade(escolhida.u, escolhida.nome)}
+                  href={whatsappAtendida(escolhida)}
                   className="botao texto-no-laranja bg-marca text-white font-bold text-[19px] rounded-xl px-6 py-3"
                 >
                   Chamar no WhatsApp
@@ -98,15 +119,15 @@ export default function OndeAtendemos() {
             {naoAchou && (
               <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
                 <div className="text-[#C9CDD0] mb-4">
-                  Essa cidade não está na nossa lista. Chame a unidade mais perto e a gente vê como atender:
+                  Essa cidade fica fora da nossa região: o aço é atendido pelo distribuidor ArcelorMittal de lá.
+                  O <span className="text-white font-semibold">corte e dobra</span> a gente atende, pela central de Chapecó.
                 </div>
-                <div className="grid grid-cols-2 gap-2">
-                  {['J', 'C'].map((u) => (
-                    <a key={u} href={whatsappCidade(u, texto.trim())} className="botao texto-no-laranja bg-marca text-white font-bold text-[19px] rounded-xl py-3 text-center">
-                      {u === 'J' ? 'Joinville' : 'Chapecó'}
-                    </a>
-                  ))}
-                </div>
+                <a
+                  href={whatsappCorteDobra(texto.trim())}
+                  className="botao texto-no-laranja bg-marca text-white font-bold text-[19px] rounded-xl px-6 py-3"
+                >
+                  Cotar corte e dobra
+                </a>
               </div>
             )}
           </div>
