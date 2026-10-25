@@ -32,6 +32,12 @@ const PRODUTOS = [
   { nome: 'Chapas', pedido: 'chapas', foto: fotoChapas, descricao: 'Fina e grossa a quente, a frio, zincada e xadrez, para indústria e serralheria.' },
   { nome: 'Bobinas', pedido: 'bobinas', foto: fotoBobinas, descricao: 'Aço plano em bobina para quem corta e conforma na própria fábrica.' },
 ]
+// Também vendemos, com menos destaque: linha de texto, sem foto
+const PRODUTOS_MAIS = [
+  { nome: 'Tela soldada', pedido: 'tela soldada' },
+  { nome: 'Treliça', pedido: 'treliça' },
+  { nome: 'Arame recozido e pregos', pedido: 'arame recozido e pregos' },
+]
 
 export default function BertinLandingPage() {
   const [menuAberto, setMenuAberto] = useState(false)
@@ -299,6 +305,34 @@ export default function BertinLandingPage() {
                     </button>
                   )}
                 </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 text-sm font-semibold uppercase tracking-[0.2em] text-[#A3ACB2] mb-4">
+            Também temos
+          </div>
+
+          <div className="grid sm:grid-cols-3 gap-4">
+            {PRODUTOS_MAIS.map((p) => (
+              <div key={p.nome} className="flex items-center justify-between gap-3 rounded-2xl border border-white/10 px-5 py-4">
+                <div className="text-lg font-semibold">
+                  {p.nome}
+                </div>
+
+                {cotando === p.nome ? (
+                  <div className="flex gap-3 shrink-0">
+                    {UNIDADES.map((u) => (
+                      <a key={u.nome} href={whatsappProduto(u, p.pedido)} className="text-marca-clara font-semibold underline underline-offset-4">
+                        {u.cidade}
+                      </a>
+                    ))}
+                  </div>
+                ) : (
+                  <button onClick={() => setCotando(p.nome)} className="shrink-0 text-marca-clara font-semibold">
+                    Cotar ›
+                  </button>
+                )}
               </div>
             ))}
           </div>
