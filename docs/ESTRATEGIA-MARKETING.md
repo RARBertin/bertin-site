@@ -95,7 +95,7 @@ Ordem de esforço: **construção civil** primeiro (60% a 70% das vendas), depoi
 
 ### Números autorizados para o site
 
-- **+300 mil toneladas de aço para a construção civil em SC.** Cálculo de 25/10/2026: 319 mil t (Joinville 160 mil desde 2004, Chapecó 159 mil desde 2010), vendas dos escritórios DBA Joinville e DBA Chapecó em `amb_vendas_itens`, com barra e peça convertidas em peso (98% do valor). Somando todas as linhas, passa de 500 mil t. Não conta 1994–2003.
+- **+320 mil toneladas de aço para a construção civil em SC** (autorizado pelo Raffael: Joinville vende desde 1994 e Chapecó desde 2007, antes do começo dos dados). Cálculo de 25/10/2026: 319 mil t (Joinville 160 mil desde 2004, Chapecó 159 mil desde 2010), vendas dos escritórios DBA Joinville e DBA Chapecó em `amb_vendas_itens`, com barra e peça convertidas em peso (98% do valor). Somando todas as linhas, passa de 500 mil t. Não conta 1994–2003.
 - +30 anos de mercado (Joinville abriu em 1994)
 - +20 anos de parceria ArcelorMittal (distribuidor desde 2004)
 - +150 cidades atendidas. O mapa da seção 3 do pedido vai confirmar esse número; se der outro, trocamos.
