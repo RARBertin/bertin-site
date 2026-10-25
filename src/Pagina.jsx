@@ -402,6 +402,21 @@ export default function BertinLandingPage() {
             <h2 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight">
               Daqui, para quem constrói aqui.
             </h2>
+
+            {/* 319 mil t de construção civil vendidas pelos escritórios 124 e 155
+                (amb_vendas_itens, Joinville desde 2004 e Chapecó desde 2010),
+                calculado em 25/10/2026: fica em "mais de 300 mil" */}
+            <div className="border-l-4 border-marca pl-5">
+              <div className="text-5xl lg:text-6xl font-black text-marca leading-none mb-2">
+                +300 mil
+              </div>
+              <div className="text-xl font-semibold leading-snug">
+                toneladas de aço já viraram obra em Santa Catarina.
+              </div>
+              <div className="text-lg text-[#C9CDD0] mt-1">
+                Tem um pedaço da Bertin em cada canto do estado.
+              </div>
+            </div>
           </div>
 
           <div className="space-y-6 text-lg text-[#C9CDD0] leading-relaxed">
