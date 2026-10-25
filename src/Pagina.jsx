@@ -143,7 +143,7 @@ export default function BertinLandingPage() {
         <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-36 grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <div className="entra mb-6 inline-block border border-marca/60 rounded-full px-4 py-1 text-sm font-semibold text-marca-clara tracking-wide uppercase" style={{ '--i': 0 }}>
-              Ferro • Aço • Soluções
+              Distribuidor ArcelorMittal
             </div>
 
             <h1 className="entra text-5xl lg:text-7xl font-black italic tracking-tight leading-none mb-8" style={{ '--i': 1 }}>
@@ -159,7 +159,7 @@ export default function BertinLandingPage() {
             <div className="entra flex flex-wrap gap-4" style={{ '--i': 3 }}>
               <a
                 href="#contato"
-                className="botao botao-relevo bg-marca hover:opacity-90 px-8 py-4 rounded-2xl text-lg font-semibold text-black"
+                className="botao botao-relevo bg-marca hover:opacity-90 px-8 py-4 rounded-2xl text-xl font-bold text-white texto-no-laranja"
               >
                 Pedir cotação
               </a>
@@ -182,11 +182,11 @@ export default function BertinLandingPage() {
 
                 <div className="entra entra-numero bg-black/20 rounded-2xl p-6" style={{ '--j': 1 }}>
                   <div className="text-4xl font-black text-marca mb-2">
-                    +150
+                    170
                   </div>
 
                   <div className="text-[#C9CDD0]">
-                    Cidades catarinenses atendidas
+                    Cidades atendidas em SC
                   </div>
                 </div>
 
@@ -202,11 +202,11 @@ export default function BertinLandingPage() {
 
                 <div className="entra entra-numero bg-black/20 rounded-2xl p-6" style={{ '--j': 3 }}>
                   <div className="text-4xl font-black text-marca mb-2">
-                    SC
+                    Frota
                   </div>
 
                   <div className="text-[#C9CDD0]">
-                    Joinville • Chapecó
+                    Própria, com entrega em Joinville, Chapecó e região
                   </div>
                 </div>
 
@@ -363,16 +363,16 @@ export default function BertinLandingPage() {
           </div>
 
           <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16">
-            Soluções para diferentes setores da indústria.
+            Aço para a obra, a fábrica e a revenda.
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
             {[
               { nome: 'Construção Civil', descricao: 'Ferro e aço para todas as etapas da obra, com volume e prazo de entrega que acompanham o seu cronograma.' },
-              { nome: 'Industrial', descricao: 'Fornecimento constante para linhas de produção, com a qualidade ArcelorMittal que sua indústria exige.' },
+              { nome: 'Indústria e Planos', descricao: 'Chapas, bobinas, tubos e barras com certificado de usina, com entrega programada para a sua produção.' },
               { nome: 'Atacado e Varejo', descricao: 'Do pedido em grande escala à compra pontual — atendimento flexível para atacadistas e varejistas de qualquer porte.' },
-              { nome: 'Corte & Dobra', descricao: 'Material cortado e dobrado sob medida, pronto para aplicar — menos etapas, menos desperdício na sua obra.' },
+              { nome: 'Corte & Dobra', descricao: 'Aço cortado e dobrado pelo seu projeto na nossa central de Chapecó, com entrega também na região de Joinville.' },
             ].map((item) => (
 
               <div
@@ -400,21 +400,20 @@ export default function BertinLandingPage() {
             </div>
 
             <h2 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight">
-              Tradição, estrutura e atendimento próximo ao cliente.
+              Uma família no aço, em Joinville desde 1994.
             </h2>
           </div>
 
           <div className="space-y-6 text-lg text-[#C9CDD0] leading-relaxed">
             <p>
-              Atuamos no fornecimento e distribuição de ferro e aço para
-              construção civil, indústria, agropecuária, atacado e varejo,
-              com operações em Joinville e Chapecó.
+              A história começou com o aço em Londrina e Maringá, no Paraná.
+              Em 1994 a Bertin abriu em Joinville e cresceu junto com quem
+              constrói em Santa Catarina. Desde 2004 é distribuidor ArcelorMittal.
             </p>
 
             <p>
-              Contamos com estrutura operacional integrada, atendimento próximo
-              e soluções em corte e dobra voltadas especialmente para a
-              construção civil e o setor industrial.
+              Hoje são duas unidades, em Joinville e em Chapecó, uma equipe de
+              mais de 100 pessoas e frota própria para levar o aço até a obra.
             </p>
           </div>
 
@@ -432,8 +431,8 @@ export default function BertinLandingPage() {
           </h2>
 
           <p className="text-2xl font-medium leading-snug max-w-3xl mx-auto mb-12">
-            Entre em contato para conhecer nossas soluções,
-            estrutura e formas de atendimento.
+            Chame a unidade mais perto no WhatsApp
+            e peça a sua cotação.
           </p>
 
           {/* WhatsApp na frente: é por onde o cliente pede cotação */}
@@ -481,8 +480,9 @@ export default function BertinLandingPage() {
       {/* Só no celular: os dois WhatsApp sempre à mão enquanto rola a página */}
       <nav className="barra-cotacao md:hidden" data-visivel={barraVisivel} aria-label="Pedir cotação" aria-hidden={!barraVisivel}>
         {UNIDADES.map((u) => (
-          <a key={u.nome} href={whatsapp(u)} tabIndex={barraVisivel ? 0 : -1} className="botao bg-marca text-black font-semibold rounded-xl py-3 text-center">
-            WhatsApp {u.cidade}
+          <a key={u.nome} href={whatsapp(u)} tabIndex={barraVisivel ? 0 : -1} className="botao texto-no-laranja bg-marca text-white font-bold text-[19px] rounded-xl py-3 !flex items-center justify-center gap-2" aria-label={`WhatsApp ${u.cidade}`}>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.4-.2Z"/></svg>
+            {u.cidade}
           </a>
         ))}
       </nav>
