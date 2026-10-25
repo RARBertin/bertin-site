@@ -218,10 +218,9 @@ function BertinLandingPage() {
               de parceria.
             </h2>
 
-            <p className="text-2xl font-medium leading-snug max-w-2xl">
-              Distribuidor exclusivo ArcelorMittal no mercado catarinense,
-              atuando com fornecimento de aço para construção civil,
-              indústria e operações estratégicas.
+            <p className="text-2xl lg:text-3xl font-bold leading-snug max-w-2xl">
+              Distribuidor exclusivo ArcelorMittal na sua região: aço de usina,
+              entregue por quem está perto.
             </p>
 
             <p className="mt-6 text-[19px] font-bold leading-relaxed max-w-2xl">
