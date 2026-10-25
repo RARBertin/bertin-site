@@ -9,6 +9,7 @@ import fotoBobinas from './produtos/bobinas.webp'
 import fotoTela from './produtos/tela-soldada.webp'
 import fotoTrelica from './produtos/trelica.webp'
 import fotoAramePregos from './produtos/arame-pregos.webp'
+import OndeAtendemos from './mapa/OndeAtendemos'
 
 // Sistemas internos disponíveis no menu "Acesso interno" — adicione novas
 // linhas aqui conforme novos apps forem entrando no ar.
@@ -419,6 +420,8 @@ export default function BertinLandingPage() {
 
         </div>
       </section>
+
+      <OndeAtendemos />
 
       {/* CONTATO */}
       <section id="contato" ref={contatoRef} className="texto-no-laranja bg-marca text-white">
