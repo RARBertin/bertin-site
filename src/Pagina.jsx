@@ -407,16 +407,30 @@ export default function BertinLandingPage() {
                 (amb_vendas_itens, Joinville desde 2004 e Chapecó desde 2010),
                 calculado em 25/10/2026; Raffael autorizou "mais de 320 mil" porque
                 Joinville vende desde 1994 e Chapecó desde 2007, antes dos dados */}
-            <div className="border-l-4 border-marca pl-5">
-              <div className="text-5xl lg:text-6xl font-black text-marca leading-none mb-2">
-                +320 mil
+            {/* Indústria: planos 130 mil + indústria 47 mil + tubos 10 mil t
+                (mesmo cálculo, 25/10/2026) = 186 mil; fica em "mais de 180 mil" */}
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div className="border-l-4 border-marca pl-5">
+                <div className="text-5xl font-black text-marca leading-none mb-2">
+                  +320 mil
+                </div>
+                <div className="text-lg font-semibold leading-snug">
+                  toneladas de aço já viraram obra em Santa Catarina.
+                </div>
               </div>
-              <div className="text-xl font-semibold leading-snug">
-                toneladas de aço já viraram obra em Santa Catarina.
+
+              <div className="border-l-4 border-marca pl-5">
+                <div className="text-5xl font-black text-marca leading-none mb-2">
+                  +180 mil
+                </div>
+                <div className="text-lg font-semibold leading-snug">
+                  toneladas viraram máquina, estrutura e produto na indústria catarinense.
+                </div>
               </div>
-              <div className="text-lg text-[#C9CDD0] mt-1">
-                Tem um pedaço da história da Bertin em cada canto do estado.
-              </div>
+            </div>
+
+            <div className="text-lg text-[#C9CDD0] mt-6">
+              Tem um pedaço da história da Bertin em cada canto do estado.
             </div>
           </div>
 
