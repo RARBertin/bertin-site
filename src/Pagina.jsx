@@ -2,6 +2,14 @@ import React, { useState, useEffect, useRef } from 'react'
 import arcelorLogo from './arcelor.png'
 import vergalhaoTopo from './vergalhao-topo.webp'
 import vergalhaoDiagonal from './vergalhao-diagonal.webp'
+import fotoVergalhao from './produtos/vergalhao.webp'
+import fotoCorteDobra from './produtos/corte-e-dobra.webp'
+import fotoChapas from './produtos/chapas.webp'
+import fotoBobinas from './produtos/bobinas.webp'
+import fotoTela from './produtos/tela-soldada.webp'
+import fotoTrelica from './produtos/trelica.webp'
+import fotoAramePregos from './produtos/arame-pregos.webp'
+import OndeAtendemos from './mapa/OndeAtendemos'
 
 // Sistemas internos disponíveis no menu "Acesso interno" — adicione novas
 // linhas aqui conforme novos apps forem entrando no ar.
@@ -17,6 +25,23 @@ const UNIDADES = [
   { nome: 'Unidade Chapecó', cidade: 'Chapecó', telefone: '(49) 3319-9600', numero: '554933199600' },
 ]
 const whatsapp = (u) => `https://wa.me/${u.numero}?text=${MENSAGEM_COTACAO}`
+const whatsappProduto = (u, produto) =>
+  `https://wa.me/${u.numero}?text=${encodeURIComponent(`Olá! Vim pelo site da Bertin e gostaria de uma cotação de ${produto}.`)}`
+
+// Linhas escolhidas pelo Raffael em 25/10/2026 (estratégia v2). Fotos do
+// portal Conexão ArcelorMittal, recortadas em 800×500.
+const PRODUTOS = [
+  { nome: 'Vergalhão CA‑50 e CA‑60', pedido: 'vergalhão CA-50 e CA-60', foto: fotoVergalhao, descricao: 'Barra e rolo com a marca ArcelorMittal gravada e certificado da usina.' },
+  { nome: 'Corte e dobra', pedido: 'corte e dobra', foto: fotoCorteDobra, descricao: 'Vergalhão cortado e dobrado pelo seu projeto na nossa central de Chapecó, pronto para montar.' },
+  { nome: 'Chapas', pedido: 'chapas', foto: fotoChapas, descricao: 'Fina e grossa a quente, a frio, zincada e xadrez, para indústria e serralheria.' },
+  { nome: 'Bobinas', pedido: 'bobinas', foto: fotoBobinas, descricao: 'Aço plano em bobina para quem corta e conforma na própria fábrica.' },
+]
+// Também vendemos, com menos destaque: cartão baixo, foto pequena ao lado
+const PRODUTOS_MAIS = [
+  { nome: 'Tela soldada', pedido: 'tela soldada', foto: fotoTela, descricao: 'Painel e rolo para laje, piso e parede.' },
+  { nome: 'Treliça', pedido: 'treliça', foto: fotoTrelica, descricao: 'Para laje treliçada, com a altura do seu projeto.' },
+  { nome: 'Arame recozido e pregos', pedido: 'arame recozido e pregos', foto: fotoAramePregos, descricao: 'Para amarrar a armação e montar a forma.' },
+]
 
 export default function BertinLandingPage() {
   const [menuAberto, setMenuAberto] = useState(false)
@@ -24,6 +49,7 @@ export default function BertinLandingPage() {
   const topoRef = useRef(null)
   const contatoRef = useRef(null)
   const [barraVisivel, setBarraVisivel] = useState(false)
+  const [cotando, setCotando] = useState(null)
 
   // Barra de WhatsApp do celular: aparece depois do topo e some quando o
   // Contato está na tela, para não repetir os mesmos botões.
@@ -117,7 +143,7 @@ export default function BertinLandingPage() {
         <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-36 grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <div className="entra mb-6 inline-block border border-marca/60 rounded-full px-4 py-1 text-sm font-semibold text-marca-clara tracking-wide uppercase" style={{ '--i': 0 }}>
-              Ferro • Aço • Soluções
+              Distribuidor ArcelorMittal
             </div>
 
             <h1 className="entra text-5xl lg:text-7xl font-black italic tracking-tight leading-none mb-8" style={{ '--i': 1 }}>
@@ -133,7 +159,7 @@ export default function BertinLandingPage() {
             <div className="entra flex flex-wrap gap-4" style={{ '--i': 3 }}>
               <a
                 href="#contato"
-                className="botao botao-relevo bg-marca hover:opacity-90 px-8 py-4 rounded-2xl text-lg font-semibold text-black"
+                className="botao botao-relevo bg-marca hover:opacity-90 px-8 py-4 rounded-2xl text-xl font-bold text-white texto-no-laranja"
               >
                 Pedir cotação
               </a>
@@ -156,11 +182,11 @@ export default function BertinLandingPage() {
 
                 <div className="entra entra-numero bg-black/20 rounded-2xl p-6" style={{ '--j': 1 }}>
                   <div className="text-4xl font-black text-marca mb-2">
-                    +150
+                    170
                   </div>
 
                   <div className="text-[#C9CDD0]">
-                    Cidades catarinenses atendidas
+                    Cidades atendidas em SC
                   </div>
                 </div>
 
@@ -176,11 +202,11 @@ export default function BertinLandingPage() {
 
                 <div className="entra entra-numero bg-black/20 rounded-2xl p-6" style={{ '--j': 3 }}>
                   <div className="text-4xl font-black text-marca mb-2">
-                    SC
+                    Frota
                   </div>
 
                   <div className="text-[#C9CDD0]">
-                    Joinville • Chapecó
+                    Própria, com entrega em Joinville, Chapecó e região
                   </div>
                 </div>
 
@@ -230,6 +256,101 @@ export default function BertinLandingPage() {
         </div>
       </section>
 
+      {/* PRODUTOS — "Cotar" troca o botão pelas duas unidades; o WhatsApp abre
+          com o nome do produto já escrito */}
+      <section id="produtos" className="bg-[#2d2a27]">
+        <div className="max-w-7xl mx-auto px-6 py-24">
+
+          <div className="text-sm font-semibold uppercase tracking-[0.2em] text-marca-clara mb-4 text-center">
+            Produtos
+          </div>
+
+          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-4">
+            Aço de usina para a obra e para a fábrica.
+          </h2>
+
+          <p className="text-lg text-[#C9CDD0] text-center max-w-2xl mx-auto mb-16">
+            Escolha o produto e fale com a unidade mais perto de você.
+          </p>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {PRODUTOS.map((p) => (
+              <div key={p.nome} className="segmento flex flex-col rounded-3xl border border-white/10 bg-white/5 overflow-hidden">
+                <img src={p.foto} alt={p.nome} width="800" height="500" loading="lazy" className="w-full aspect-[8/5] object-cover" />
+
+                <div className="flex flex-col flex-1 p-6">
+                  <div className="text-2xl font-bold mb-2">
+                    {p.nome}
+                  </div>
+
+                  <div className="text-[#C9CDD0] mb-6 flex-1">
+                    {p.descricao}
+                  </div>
+
+                  {cotando === p.nome ? (
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="col-span-2 text-sm text-[#C9CDD0]">Chamar no WhatsApp de:</div>
+                      {UNIDADES.map((u) => (
+                        <a
+                          key={u.nome}
+                          href={whatsappProduto(u, p.pedido)}
+                          className="botao texto-no-laranja bg-marca text-white font-bold text-[19px] rounded-xl py-3 text-center"
+                        >
+                          {u.cidade}
+                        </a>
+                      ))}
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => setCotando(p.nome)}
+                      className="botao texto-no-laranja bg-marca text-white font-bold text-[19px] rounded-xl py-3 w-full"
+                    >
+                      Cotar
+                    </button>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 text-sm font-semibold uppercase tracking-[0.2em] text-[#A3ACB2] mb-4">
+            Também temos
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {PRODUTOS_MAIS.map((p) => (
+              <div key={p.nome} className="segmento flex rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
+                <img src={p.foto} alt={p.nome} width="320" height="320" loading="lazy" className="w-28 shrink-0 object-cover" />
+
+                <div className="flex flex-col flex-1 p-4">
+                  <div className="text-lg font-bold">
+                    {p.nome}
+                  </div>
+
+                  <div className="text-sm text-[#C9CDD0] mb-3 flex-1">
+                    {p.descricao}
+                  </div>
+
+                  {cotando === p.nome ? (
+                    <div className="flex gap-2">
+                      {UNIDADES.map((u) => (
+                        <a key={u.nome} href={whatsappProduto(u, p.pedido)} className="botao flex-1 text-center border border-marca text-marca-clara font-semibold rounded-lg py-1.5">
+                          {u.cidade}
+                        </a>
+                      ))}
+                    </div>
+                  ) : (
+                    <button onClick={() => setCotando(p.nome)} className="botao self-start border border-marca text-marca-clara font-semibold rounded-lg px-5 py-1.5">
+                      Cotar
+                    </button>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* SEGMENTOS + SOBRE — mesmo fundo, um bloco só, com dois vergalhões em
           diagonal como no timbrado: um entra pela direita, o outro pela esquerda */}
       <section className="segmentos relative overflow-hidden">
@@ -242,16 +363,16 @@ export default function BertinLandingPage() {
           </div>
 
           <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16">
-            Soluções para diferentes setores da indústria.
+            Aço para a obra, a fábrica e a revenda.
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
             {[
               { nome: 'Construção Civil', descricao: 'Ferro e aço para todas as etapas da obra, com volume e prazo de entrega que acompanham o seu cronograma.' },
-              { nome: 'Industrial', descricao: 'Fornecimento constante para linhas de produção, com a qualidade ArcelorMittal que sua indústria exige.' },
+              { nome: 'Indústria e Planos', descricao: 'Chapas, bobinas, tubos e barras com certificado de usina, com entrega programada para a sua produção.' },
               { nome: 'Atacado e Varejo', descricao: 'Do pedido em grande escala à compra pontual — atendimento flexível para atacadistas e varejistas de qualquer porte.' },
-              { nome: 'Corte & Dobra', descricao: 'Material cortado e dobrado sob medida, pronto para aplicar — menos etapas, menos desperdício na sua obra.' },
+              { nome: 'Corte & Dobra', descricao: 'Aço cortado e dobrado pelo seu projeto na nossa central de Chapecó, com entrega também na região de Joinville.' },
             ].map((item) => (
 
               <div
@@ -279,26 +400,27 @@ export default function BertinLandingPage() {
             </div>
 
             <h2 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight">
-              Tradição, estrutura e atendimento próximo ao cliente.
+              Uma família no aço, em Joinville desde 1994.
             </h2>
           </div>
 
           <div className="space-y-6 text-lg text-[#C9CDD0] leading-relaxed">
             <p>
-              Atuamos no fornecimento e distribuição de ferro e aço para
-              construção civil, indústria, agropecuária, atacado e varejo,
-              com operações em Joinville e Chapecó.
+              A história começou com o aço em Londrina e Maringá, no Paraná.
+              Em 1994 a Bertin abriu em Joinville e cresceu junto com quem
+              constrói em Santa Catarina. Desde 2004 é distribuidor ArcelorMittal.
             </p>
 
             <p>
-              Contamos com estrutura operacional integrada, atendimento próximo
-              e soluções em corte e dobra voltadas especialmente para a
-              construção civil e o setor industrial.
+              Hoje são duas unidades, em Joinville e em Chapecó, uma equipe de
+              mais de 100 pessoas e frota própria para levar o aço até a obra.
             </p>
           </div>
 
         </div>
       </section>
+
+      <OndeAtendemos />
 
       {/* CONTATO */}
       <section id="contato" ref={contatoRef} className="texto-no-laranja bg-marca text-white">
@@ -309,8 +431,8 @@ export default function BertinLandingPage() {
           </h2>
 
           <p className="text-2xl font-medium leading-snug max-w-3xl mx-auto mb-12">
-            Entre em contato para conhecer nossas soluções,
-            estrutura e formas de atendimento.
+            Chame a unidade mais perto no WhatsApp
+            e peça a sua cotação.
           </p>
 
           {/* WhatsApp na frente: é por onde o cliente pede cotação */}
@@ -358,8 +480,9 @@ export default function BertinLandingPage() {
       {/* Só no celular: os dois WhatsApp sempre à mão enquanto rola a página */}
       <nav className="barra-cotacao md:hidden" data-visivel={barraVisivel} aria-label="Pedir cotação" aria-hidden={!barraVisivel}>
         {UNIDADES.map((u) => (
-          <a key={u.nome} href={whatsapp(u)} tabIndex={barraVisivel ? 0 : -1} className="botao bg-marca text-black font-semibold rounded-xl py-3 text-center">
-            WhatsApp {u.cidade}
+          <a key={u.nome} href={whatsapp(u)} tabIndex={barraVisivel ? 0 : -1} className="botao texto-no-laranja bg-marca text-white font-bold text-[19px] rounded-xl py-3 !flex items-center justify-center gap-2" aria-label={`WhatsApp ${u.cidade}`}>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.4-.2Z"/></svg>
+            {u.cidade}
           </a>
         ))}
       </nav>

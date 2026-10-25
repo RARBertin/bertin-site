@@ -109,3 +109,9 @@ html { scroll-behavior: smooth; }
 .barra-cotacao[data-visivel="false"] { transform: translateY(110%); }
 @media (min-width: 768px) { .barra-cotacao { display: none; } }
 @media (prefers-reduced-motion: reduce) { .barra-cotacao { transition: none; } }
+
+/* Mapa "Onde atendemos": borda fina entre as cidades; as atendidas reagem ao toque */
+.mapa-sc path { stroke: #2d2a27; stroke-width: 1.2; stroke-linejoin: round; transition: fill 150ms ease; }
+.mapa-sc path.atendida { cursor: pointer; }
+@media (hover: hover) { .mapa-sc path.atendida:hover { filter: brightness(1.18); } }
+.mapa-sc .pino text { fill: #fff; font-size: 34px; font-weight: 700; paint-order: stroke; stroke: #2d2a27; stroke-width: 8px; }
