@@ -35,8 +35,10 @@ const POR_NOME = Object.fromEntries(CIDADES.map(([ibge, nome]) => [sem(nome), ib
 const mensagem = (cidade, produto) =>
   encodeURIComponent(`Olá! Vim pelo site da Bertin. Sou de ${cidade} e gostaria de uma cotação${produto ? ` de ${produto}` : ''}.`)
 // Fora da lista, as linhas de aço são do distribuidor ArcelorMittal daquela
-// região; só o corte e dobra (feito em Chapecó) a Bertin pode atender.
-const whatsappCorteDobra = (cidade) => `https://wa.me/${UNIDADE.C.numero}?text=${mensagem(cidade, 'corte e dobra')}`
+// região e só o corte e dobra a Bertin atende. O site não diz "não atendemos"
+// nem manda o cliente embora: a unidade conversa e orienta onde comprar.
+const whatsappOrientacao = (u, cidade) => `https://wa.me/${UNIDADE[u].numero}?text=${encodeURIComponent(
+  `Olá! Vim pelo site da Bertin. Sou de ${cidade} e gostaria de uma orientação para comprar aço ArcelorMittal ou corte e dobra.`)}`
 // Cidade da lista: o vendedor da região quando há um; senão, a unidade
 const whatsappAtendida = (c) => `https://wa.me/${c.vendedor ? c.vendedor.numero : UNIDADE[c.u].numero}?text=${mensagem(c.nome)}`
 
@@ -119,15 +121,17 @@ export default function OndeAtendemos() {
             {naoAchou && (
               <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
                 <div className="text-[#C9CDD0] mb-4">
-                  Essa cidade fica fora da nossa região: o aço é atendido pelo distribuidor ArcelorMittal de lá.
-                  O <span className="text-white font-semibold">corte e dobra</span> a gente atende, pela central de Chapecó.
+                  Fale com a gente: orientamos você a conseguir aço ArcelorMittal perto da sua obra.
+                  E o <span className="text-white font-semibold">corte e dobra</span> a gente atende também.
                 </div>
-                <a
-                  href={whatsappCorteDobra(texto.trim())}
-                  className="botao texto-no-laranja bg-marca text-white font-bold text-[19px] rounded-xl px-6 py-3"
-                >
-                  Cotar corte e dobra
-                </a>
+                <div className="text-sm text-[#C9CDD0] mb-2">Chamar no WhatsApp de:</div>
+                <div className="grid grid-cols-2 gap-2">
+                  {['J', 'C'].map((u) => (
+                    <a key={u} href={whatsappOrientacao(u, texto.trim())} className="botao texto-no-laranja bg-marca text-white font-bold text-[19px] rounded-xl py-3 text-center">
+                      {u === 'J' ? 'Joinville' : 'Chapecó'}
+                    </a>
+                  ))}
+                </div>
               </div>
             )}
           </div>
