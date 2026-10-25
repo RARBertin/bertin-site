@@ -266,7 +266,7 @@ export default function BertinLandingPage() {
           </div>
 
           <h2 className="text-4xl lg:text-5xl font-bold text-center mb-4">
-            Aço de usina para a obra e para a fábrica.
+            Aço de usina para a obra, a fábrica e o comércio.
           </h2>
 
           <p className="text-lg text-[#C9CDD0] text-center max-w-2xl mx-auto mb-16">
