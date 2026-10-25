@@ -6,6 +6,9 @@ import fotoVergalhao from './produtos/vergalhao.webp'
 import fotoCorteDobra from './produtos/corte-e-dobra.webp'
 import fotoChapas from './produtos/chapas.webp'
 import fotoBobinas from './produtos/bobinas.webp'
+import fotoTela from './produtos/tela-soldada.webp'
+import fotoTrelica from './produtos/trelica.webp'
+import fotoAramePregos from './produtos/arame-pregos.webp'
 
 // Sistemas internos disponíveis no menu "Acesso interno" — adicione novas
 // linhas aqui conforme novos apps forem entrando no ar.
@@ -32,11 +35,11 @@ const PRODUTOS = [
   { nome: 'Chapas', pedido: 'chapas', foto: fotoChapas, descricao: 'Fina e grossa a quente, a frio, zincada e xadrez, para indústria e serralheria.' },
   { nome: 'Bobinas', pedido: 'bobinas', foto: fotoBobinas, descricao: 'Aço plano em bobina para quem corta e conforma na própria fábrica.' },
 ]
-// Também vendemos, com menos destaque: linha de texto, sem foto
+// Também vendemos, com menos destaque: cartão baixo, foto pequena ao lado
 const PRODUTOS_MAIS = [
-  { nome: 'Tela soldada', pedido: 'tela soldada' },
-  { nome: 'Treliça', pedido: 'treliça' },
-  { nome: 'Arame recozido e pregos', pedido: 'arame recozido e pregos' },
+  { nome: 'Tela soldada', pedido: 'tela soldada', foto: fotoTela, descricao: 'Painel e rolo para laje, piso e parede.' },
+  { nome: 'Treliça', pedido: 'treliça', foto: fotoTrelica, descricao: 'Para laje treliçada, com a altura do seu projeto.' },
+  { nome: 'Arame recozido e pregos', pedido: 'arame recozido e pregos', foto: fotoAramePregos, descricao: 'Para amarrar a armação e montar a forma.' },
 ]
 
 export default function BertinLandingPage() {
@@ -313,26 +316,34 @@ export default function BertinLandingPage() {
             Também temos
           </div>
 
-          <div className="grid sm:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {PRODUTOS_MAIS.map((p) => (
-              <div key={p.nome} className="flex items-center justify-between gap-3 rounded-2xl border border-white/10 px-5 py-4">
-                <div className="text-lg font-semibold">
-                  {p.nome}
-                </div>
+              <div key={p.nome} className="segmento flex rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
+                <img src={p.foto} alt={p.nome} width="320" height="320" loading="lazy" className="w-28 shrink-0 object-cover" />
 
-                {cotando === p.nome ? (
-                  <div className="flex gap-3 shrink-0">
-                    {UNIDADES.map((u) => (
-                      <a key={u.nome} href={whatsappProduto(u, p.pedido)} className="text-marca-clara font-semibold underline underline-offset-4">
-                        {u.cidade}
-                      </a>
-                    ))}
+                <div className="flex flex-col flex-1 p-4">
+                  <div className="text-lg font-bold">
+                    {p.nome}
                   </div>
-                ) : (
-                  <button onClick={() => setCotando(p.nome)} className="shrink-0 text-marca-clara font-semibold">
-                    Cotar ›
-                  </button>
-                )}
+
+                  <div className="text-sm text-[#C9CDD0] mb-3 flex-1">
+                    {p.descricao}
+                  </div>
+
+                  {cotando === p.nome ? (
+                    <div className="flex gap-2">
+                      {UNIDADES.map((u) => (
+                        <a key={u.nome} href={whatsappProduto(u, p.pedido)} className="botao flex-1 text-center border border-marca text-marca-clara font-semibold rounded-lg py-1.5">
+                          {u.cidade}
+                        </a>
+                      ))}
+                    </div>
+                  ) : (
+                    <button onClick={() => setCotando(p.nome)} className="botao self-start border border-marca text-marca-clara font-semibold rounded-lg px-5 py-1.5">
+                      Cotar
+                    </button>
+                  )}
+                </div>
               </div>
             ))}
           </div>
