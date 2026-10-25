@@ -12,9 +12,33 @@ const SISTEMAS_INTERNOS = [
   { nome: 'Meu RH', href: 'https://rh.bertin.com.br' },
 ]
 
+// O WhatsApp já abre com o pedido escrito: o cliente só completa o que precisa.
+const MENSAGEM_COTACAO = encodeURIComponent('Olá! Vim pelo site da Bertin e gostaria de uma cotação.')
+const UNIDADES = [
+  { nome: 'Unidade Joinville', cidade: 'Joinville', telefone: '(47) 3451-4888', numero: '554734514888' },
+  { nome: 'Unidade Chapecó', cidade: 'Chapecó', telefone: '(49) 3319-9600', numero: '554933199600' },
+]
+const whatsapp = (u) => `https://wa.me/${u.numero}?text=${MENSAGEM_COTACAO}`
+
 function BertinLandingPage() {
   const [menuAberto, setMenuAberto] = useState(false)
   const acessoRef = useRef(null)
+  const topoRef = useRef(null)
+  const contatoRef = useRef(null)
+  const [barraVisivel, setBarraVisivel] = useState(false)
+
+  // Barra de WhatsApp do celular: aparece depois do topo e some quando o
+  // Contato está na tela, para não repetir os mesmos botões.
+  useEffect(() => {
+    const vistos = { topo: true, contato: false }
+    const obs = new IntersectionObserver((entradas) => {
+      entradas.forEach((e) => { vistos[e.target === topoRef.current ? 'topo' : 'contato'] = e.isIntersecting })
+      setBarraVisivel(!vistos.topo && !vistos.contato)
+    })
+    obs.observe(topoRef.current)
+    obs.observe(contatoRef.current)
+    return () => obs.disconnect()
+  }, [])
 
   // Parallax leve do topo e entrada dos vergalhões do Sobre/Segmentos. Só grava duas
   // variáveis CSS por quadro; quem pede menos movimento fica com tudo parado.
@@ -55,7 +79,7 @@ function BertinLandingPage() {
     <div className="min-h-screen bg-[#3D3935] text-white font-sans">
 
       {/* HERO */}
-      <section className="relative overflow-hidden">
+      <section ref={topoRef} className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#3D3935] via-[#2d2a27] to-black opacity-95" />
         {/* Close do vergalhão ArcelorMittal, quase apagado, sumindo por trás do texto */}
         <div className="vergalhao-topo" style={{ backgroundImage: `url(${vergalhaoTopo})` }} aria-hidden="true" />
@@ -69,10 +93,10 @@ function BertinLandingPage() {
           <button
             onClick={() => setMenuAberto((v) => !v)}
             aria-expanded={menuAberto}
-            className="text-sm text-[#7C878E] hover:text-[#FF5C00] transition px-3 py-2 inline-flex items-center gap-1"
+            className="text-sm text-[#A3ACB2] hover:text-marca-clara transition px-3 py-2 inline-flex items-center gap-1"
           >
             Acesso interno
-            <span className="text-xs">{menuAberto ? '▴' : '▾'}</span>
+            <span className="text-xs" aria-hidden="true">{menuAberto ? '▴' : '▾'}</span>
           </button>
 
           {/* Sempre montado: abre crescendo do canto do botão e fecha pelo mesmo caminho (index.css) */}
@@ -84,7 +108,7 @@ function BertinLandingPage() {
                 <a
                   key={sistema.nome}
                   href={sistema.href}
-                  className="block px-4 py-3 text-sm text-[#C9CDD0] hover:bg-white/5 hover:text-[#FF5C00] transition"
+                  className="block px-4 py-3 text-sm text-[#C9CDD0] hover:bg-white/5 hover:text-marca-clara transition"
                 >
                   {sistema.nome}
                 </a>
@@ -94,7 +118,7 @@ function BertinLandingPage() {
 
         <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-36 grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <div className="entra mb-6 inline-block border border-[#FF5C00]/40 rounded-full px-4 py-1 text-sm text-[#FF5C00] tracking-wide uppercase" style={{ '--i': 0 }}>
+            <div className="entra mb-6 inline-block border border-marca/60 rounded-full px-4 py-1 text-sm font-semibold text-marca-clara tracking-wide uppercase" style={{ '--i': 0 }}>
               Ferro • Aço • Soluções
             </div>
 
@@ -111,9 +135,9 @@ function BertinLandingPage() {
             <div className="entra flex flex-wrap gap-4" style={{ '--i': 3 }}>
               <a
                 href="#contato"
-                className="botao botao-relevo bg-[#FF5C00] hover:opacity-90 px-8 py-4 rounded-2xl text-lg font-semibold text-black"
+                className="botao botao-relevo bg-marca hover:opacity-90 px-8 py-4 rounded-2xl text-lg font-semibold text-black"
               >
-                Fale conosco
+                Pedir cotação
               </a>
             </div>
           </div>
@@ -123,7 +147,7 @@ function BertinLandingPage() {
               <div className="grid grid-cols-2 gap-6">
 
                 <div className="entra entra-numero bg-black/20 rounded-2xl p-6" style={{ '--j': 0 }}>
-                  <div className="text-4xl font-black text-[#FF5C00] mb-2">
+                  <div className="text-4xl font-black text-marca mb-2">
                     +30
                   </div>
 
@@ -133,7 +157,7 @@ function BertinLandingPage() {
                 </div>
 
                 <div className="entra entra-numero bg-black/20 rounded-2xl p-6" style={{ '--j': 1 }}>
-                  <div className="text-4xl font-black text-[#FF5C00] mb-2">
+                  <div className="text-4xl font-black text-marca mb-2">
                     +150
                   </div>
 
@@ -143,7 +167,7 @@ function BertinLandingPage() {
                 </div>
 
                 <div className="entra entra-numero bg-black/20 rounded-2xl p-6" style={{ '--j': 2 }}>
-                  <div className="text-4xl font-black text-[#FF5C00] mb-2">
+                  <div className="text-4xl font-black text-marca mb-2">
                     100+
                   </div>
 
@@ -153,7 +177,7 @@ function BertinLandingPage() {
                 </div>
 
                 <div className="entra entra-numero bg-black/20 rounded-2xl p-6" style={{ '--j': 3 }}>
-                  <div className="text-4xl font-black text-[#FF5C00] mb-2">
+                  <div className="text-4xl font-black text-marca mb-2">
                     SC
                   </div>
 
@@ -169,19 +193,22 @@ function BertinLandingPage() {
       </section>
 
       {/* PARCERIA ARCELORMITTAL */}
-      <section className="bg-[#FF5C00] text-white overflow-hidden">
+      {/* Branco sobre o laranja oficial dá 3,6:1: só vale em letra grande
+          (24 px) ou em negrito a partir de 19 px, sempre opaco e com a sombra
+          leve de texto-no-laranja. Rótulo pequeno vai numa etiqueta grafite. */}
+      <section className="texto-no-laranja bg-marca text-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 py-24 lg:py-32 grid lg:grid-cols-2 gap-16 items-center">
 
           <div>
             <img
               src={arcelorLogo}
               alt="ArcelorMittal"
-              className="w-[260px] lg:w-[420px] opacity-95"
+              className="w-[260px] lg:w-[420px]"
             />
           </div>
 
           <div>
-            <div className="text-sm uppercase tracking-[0.2em] text-white/70 mb-4">
+            <div className="etiqueta-grafite mb-5">
               Parceria estratégica
             </div>
 
@@ -191,13 +218,13 @@ function BertinLandingPage() {
               de parceria.
             </h2>
 
-            <p className="text-xl lg:text-2xl leading-relaxed text-white/90 max-w-2xl">
+            <p className="text-2xl font-medium leading-snug max-w-2xl">
               Distribuidor exclusivo ArcelorMittal no mercado catarinense,
               atuando com fornecimento de aço para construção civil,
               indústria e operações estratégicas.
             </p>
 
-            <p className="mt-6 text-lg text-white/70 leading-relaxed">
+            <p className="mt-6 text-[19px] font-bold leading-relaxed max-w-2xl">
               Relacionamento consolidado ao longo de décadas com foco em
               confiança, estrutura operacional e continuidade.
             </p>
@@ -213,7 +240,7 @@ function BertinLandingPage() {
         <img src={vergalhaoDiagonal} alt="" aria-hidden="true" data-entra className="vergalhao-diagonal vergalhao-esquerda" />
         <div className="relative max-w-7xl mx-auto px-6 pt-24 pb-16">
 
-          <div className="text-sm uppercase tracking-[0.2em] text-[#FF5C00] mb-4 text-center">
+          <div className="text-sm font-semibold uppercase tracking-[0.2em] text-marca-clara mb-4 text-center">
             Segmentos atendidos
           </div>
 
@@ -232,7 +259,7 @@ function BertinLandingPage() {
 
               <div
                 key={item.nome}
-                className="segmento rounded-3xl border border-white/10 bg-white/5 p-8 hover:border-[#FF5C00]/40 transition"
+                className="segmento rounded-3xl border border-white/10 bg-white/5 p-8 hover:border-marca/50 transition"
               >
                 <div className="text-2xl font-bold mb-3">
                   {item.nome}
@@ -250,7 +277,7 @@ function BertinLandingPage() {
         <div className="relative max-w-7xl mx-auto px-6 pt-8 pb-24 lg:pb-32 grid lg:grid-cols-2 gap-16 items-center">
 
           <div>
-            <div className="text-sm uppercase tracking-[0.2em] text-[#FF5C00] mb-4">
+            <div className="text-sm font-semibold uppercase tracking-[0.2em] text-marca-clara mb-4">
               Sobre a Bertin
             </div>
 
@@ -277,78 +304,68 @@ function BertinLandingPage() {
       </section>
 
       {/* CONTATO */}
-      <section id="contato" className="bg-[#FF5C00] text-white">
+      <section id="contato" ref={contatoRef} className="texto-no-laranja bg-marca text-white">
         <div className="max-w-7xl mx-auto px-6 py-20 text-center">
 
           <h2 className="text-4xl lg:text-5xl font-black mb-6">
             Vamos conversar!
           </h2>
 
-          <p className="text-xl max-w-3xl mx-auto mb-10 opacity-80">
+          <p className="text-2xl font-medium leading-snug max-w-3xl mx-auto mb-12">
             Entre em contato para conhecer nossas soluções,
             estrutura e formas de atendimento.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-10">
-            <a
-              href="mailto:contato@bertin.com.br"
-              className="botao botao-relevo-laranja bg-black text-white px-8 py-4 rounded-2xl text-lg font-semibold"
-            >
+          {/* WhatsApp na frente: é por onde o cliente pede cotação */}
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto text-left">
+            {UNIDADES.map((u) => (
+              <div key={u.nome} className="bg-black/10 rounded-3xl p-8">
+                <div className="etiqueta-grafite mb-4">
+                  {u.nome}
+                </div>
+
+                <a href={`tel:+${u.numero}`} className="block text-3xl font-black mb-2">
+                  {u.telefone}
+                </a>
+
+                <div className="text-[19px] font-bold mb-6">
+                  Atendimento e vendas
+                </div>
+
+                <a
+                  href={whatsapp(u)}
+                  className="botao botao-relevo-laranja !block sm:!inline-block text-center bg-black text-white px-4 sm:px-8 py-4 rounded-2xl text-lg font-semibold"
+                >
+                  Pedir cotação no WhatsApp
+                </a>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 text-2xl font-medium">
+            ou escreva para{' '}
+            <a href="mailto:contato@bertin.com.br?subject=Cota%C3%A7%C3%A3o%20pelo%20site" className="font-bold underline underline-offset-4">
               contato@bertin.com.br
             </a>
           </div>
-
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto text-left">
-
-            <div className="bg-black/10 rounded-3xl p-8">
-              <div className="text-sm uppercase tracking-[0.2em] mb-3 opacity-70">
-                DBA Joinville
-              </div>
-
-              <div className="text-3xl font-black mb-3">
-                (47) 3451-4888
-              </div>
-
-              <div className="opacity-80 mb-6">
-                Atendimento e vendas • WhatsApp
-              </div>
-
-              <a
-                href="https://wa.me/554734514888"
-                className="botao botao-relevo-laranja inline-block bg-black text-white px-6 py-3 rounded-2xl font-semibold"
-              >
-                Chamar no WhatsApp
-              </a>
-            </div>
-
-            <div className="bg-black/10 rounded-3xl p-8">
-              <div className="text-sm uppercase tracking-[0.2em] mb-3 opacity-70">
-                DBA Chapecó
-              </div>
-
-              <div className="text-3xl font-black mb-3">
-                (49) 3319-9600
-              </div>
-
-              <div className="opacity-80 mb-6">
-                Atendimento e vendas • WhatsApp
-              </div>
-
-              <a
-                href="https://wa.me/554933199600"
-                className="botao botao-relevo-laranja inline-block bg-black text-white px-6 py-3 rounded-2xl font-semibold"
-              >
-                Chamar no WhatsApp
-              </a>
-            </div>
-
-          </div>
-
-          <div className="mt-10 text-sm opacity-70">
-            <a href="/privacidade" className="underline">Política de Privacidade</a>
-          </div>
         </div>
       </section>
+
+      <footer className="bg-grafite text-[#C9CDD0] text-sm">
+        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-wrap justify-between gap-3">
+          <span>Ferro e Aço Bertin • Joinville e Chapecó • SC</span>
+          <a href="/privacidade" className="underline underline-offset-4 hover:text-white">Política de Privacidade</a>
+        </div>
+      </footer>
+
+      {/* Só no celular: os dois WhatsApp sempre à mão enquanto rola a página */}
+      <nav className="barra-cotacao md:hidden" data-visivel={barraVisivel} aria-label="Pedir cotação" aria-hidden={!barraVisivel}>
+        {UNIDADES.map((u) => (
+          <a key={u.nome} href={whatsapp(u)} tabIndex={barraVisivel ? 0 : -1} className="botao bg-marca text-black font-semibold rounded-xl py-3 text-center">
+            WhatsApp {u.cidade}
+          </a>
+        ))}
+      </nav>
 
     </div>
   )
