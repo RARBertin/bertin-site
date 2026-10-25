@@ -415,7 +415,7 @@ export default function BertinLandingPage() {
                 toneladas de aço já viraram obra em Santa Catarina.
               </div>
               <div className="text-lg text-[#C9CDD0] mt-1">
-                Tem um pedaço da Bertin em cada canto do estado.
+                Tem um pedaço da história da Bertin em cada canto do estado.
               </div>
             </div>
           </div>
