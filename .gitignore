@@ -9,3 +9,6 @@ dist/
 
 # macOS
 .DS_Store
+
+# Montagem da página no build (scripts/prerender.mjs); apagada no fim
+dist-ssr/
