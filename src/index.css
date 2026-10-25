@@ -113,5 +113,11 @@ html { scroll-behavior: smooth; }
 /* Mapa "Onde atendemos": borda fina entre as cidades; as atendidas reagem ao toque */
 .mapa-sc path { stroke: #2d2a27; stroke-width: 1.2; stroke-linejoin: round; transition: fill 150ms ease; }
 .mapa-sc path.atendida { cursor: pointer; }
-@media (hover: hover) { .mapa-sc path.atendida:hover { filter: brightness(1.18); } }
+@media (hover: hover) { .mapa-sc path.atendida:hover { fill: #FFE3D6; } }
+.mapa-sc .contorno-destaque { fill: none; stroke: #fff; stroke-width: 3.5; }
+.mapa-sc .rotulo-cidade { fill: #fff; font-size: 34px; font-weight: 800; paint-order: stroke; stroke: #2d2a27; stroke-width: 9px; stroke-linejoin: round; }
 .mapa-sc .pino text { fill: #fff; font-size: 34px; font-weight: 700; paint-order: stroke; stroke: #2d2a27; stroke-width: 8px; }
+@media (max-width: 640px) {
+  .mapa-sc .rotulo-cidade { font-size: 56px; stroke-width: 13px; }
+  .mapa-sc .pino text { font-size: 46px; stroke-width: 11px; }
+}
