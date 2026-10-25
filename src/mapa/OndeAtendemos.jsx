@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect, useMemo, useRef } from 'react'
 import { CIDADES } from './cidades'
 
 // Mapa "Onde atendemos": o cliente digita (ou toca) a cidade e vê qual unidade
@@ -46,8 +46,23 @@ export default function OndeAtendemos() {
   const [mapa, setMapa] = useState(null)
   const [texto, setTexto] = useState('')
   const [ibge, setIbge] = useState(null)
+  const [foco, setFoco] = useState(null)
+  const [rotulo, setRotulo] = useState(null)
+  const caminhos = useRef({})
 
   useEffect(() => { import('./contornos').then(setMapa) }, [])
+
+  // Nome em cima da cidade: a que está sob o mouse, senão a escolhida
+  const destaque = (foco && POR_IBGE[foco] ? foco : null) || ibge
+  useEffect(() => {
+    const el = destaque && caminhos.current[destaque]
+    if (!el || !mapa) { setRotulo(null); return }
+    const b = el.getBBox()
+    // meia largura aproximada do nome (a letra é maior no celular, ver index.css)
+    const meia = POR_IBGE[destaque].nome.length * (matchMedia('(max-width: 640px)').matches ? 16 : 10) + 12
+    const x = Math.min(Math.max(b.x + b.width / 2, meia), mapa.LARGURA - meia)
+    setRotulo({ x, y: b.y - 14 < 40 ? b.y + b.height + 40 : b.y - 14, nome: POR_IBGE[destaque].nome })
+  }, [destaque, mapa])
 
   const escolhida = ibge && POR_IBGE[ibge]
   const naoAchou = !escolhida && texto.trim().length >= 3
@@ -149,15 +164,23 @@ export default function OndeAtendemos() {
               return (
                 <path
                   key={cod}
+                  ref={(el) => { caminhos.current[cod] = el }}
                   d={d}
                   fill={cod === ibge ? '#FFFFFF' : c ? UNIDADE[c.u].cor : '#4a4642'}
                   className={c ? 'atendida' : undefined}
                   onClick={() => tocou(cod)}
+                  onMouseEnter={() => setFoco(cod)}
+                  onMouseLeave={() => setFoco(null)}
                 >
                   <title>{c ? `${c.nome}: ${UNIDADE[c.u].nome}` : ''}</title>
                 </path>
               )
             })}
+
+            {/* Contorno branco por cima da cidade em destaque, para ela saltar do vizinho */}
+            {mapa && destaque && caminhos.current[destaque] && (
+              <path d={caminhos.current[destaque].getAttribute('d')} className="contorno-destaque" pointerEvents="none" />
+            )}
 
             {mapa && PINOS.map((p) => (
               <g key={p.nome} className="pino" pointerEvents="none">
@@ -165,6 +188,9 @@ export default function OndeAtendemos() {
                 <text x={p.x} y={p.y + (p.y < 100 ? 48 : -26)} textAnchor="middle">{p.nome}</text>
               </g>
             ))}
+            {rotulo && (
+              <text x={rotulo.x} y={rotulo.y} textAnchor="middle" className="rotulo-cidade" pointerEvents="none">{rotulo.nome}</text>
+            )}
           </svg>
 
           <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-[#C9CDD0]">
