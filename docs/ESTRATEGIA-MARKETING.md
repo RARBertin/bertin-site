@@ -60,10 +60,15 @@ Ordem de esforço: **construção civil** primeiro (60% a 70% das vendas), depoi
 ### 2.2 Indústria e planos (segunda frente, em crescimento)
 
 - **Quem é:** metalúrgica, serralheria grande, fabricante de estruturas, implementos e máquinas. O contato é o comprador ou o dono.
-- **O que procura:** **planos** (chapas e bobinas), tubos, barras, perfis e fio-máquina, com fornecimento regular e certificado da usina.
-- **O que faz decidir:** ter o item (mix), regularidade (nunca faltar), preço, procedência e certificado, prazo de pagamento e entrega programada.
+- **O que procura:** **planos** (chapas e bobinas), barras, perfis e fio-máquina, com fornecimento regular e certificado da usina. Em planos, o que vendemos de fato e queremos mostrar: **laminados a frio, laminados a quente, perfis UDC e bobinas BGL** (Paulo Rene, 26/10/2026). **Tubos** praticamente saíram: só aparecem no site se for preciso, como redondos, quadrados e retangulares, zincados e pretos.
+- **O que faz decidir:** nos últimos anos, **preço** acima de tudo. Depois vêm prazo de pagamento, mix (muitas medidas e variações) e **serviço**: vários concorrentes entregam o material já cortado na medida do cliente. Alpe e AM Card dão prazo, mas as taxas entram no preço e nos afastam ainda mais.
+- **Quando ganhamos:** **estoque no chão e prazo de entrega**. É isso que fecha negócio quando a política comercial não é competitiva, e é isso que o site deve mostrar para a indústria.
 - **Onde estamos fracos:** mix e, às vezes, preço. O site não resolve isso: ele deve mostrar as linhas que temos de verdade e levar ao vendedor, sem prometer variedade que não temos.
-- **Concorrência:** em Joinville há outros players de indústria, tubos e planos que a pesquisa não cobriu. Paulo Rene e José Carlos vão indicar quais são (e-mail pedindo isso, em rascunho em 25/10).
+- **Concorrência (Joinville e região, Paulo Rene em 26/10/2026):**
+  - **Planos:** Dox do Brasil, Jefer, Panatlântica, Multiaços, Pires do Rio e Comercial Gerdau.
+  - **Indústria (longos):** Ciafal, Cipalam, Pires do Rio (entrando em longos), Comercial Gerdau e distribuidores independentes como Mkraft e Conte Aços.
+  - **Tubos:** não participamos mais, então não há concorrente a apontar.
+  - Falta a visão de Chapecó (José Carlos).
 
 ### 2.3 Revendas (atacado e varejo)
 
@@ -201,7 +206,9 @@ Quando houver medida, estas promessas viram o argumento mais forte contra a Gerd
 | Segmento que deve crescer | Construção civil; indústria e planos vêm ganhando mercado |
 | Por que nos escolhem | Prazo e entrega; corte e dobra |
 | Pontos fracos | Mix e preço (política comercial da AMB) |
-| Concorrentes principais | Comercial Gerdau, Giassi (aço importado), Scaini; em indústria e planos, a confirmar com Paulo Rene e José Carlos |
+| Concorrentes principais | Comercial Gerdau, Giassi (aço importado), Scaini; em planos, Dox, Jefer, Panatlântica, Multiaços e Pires do Rio; em indústria, Ciafal, Cipalam, Mkraft e Conte Aços (Paulo Rene, Joinville) |
+| Linhas de planos no site | Laminados a frio e a quente, perfis UDC e bobinas BGL; tubos só se for preciso |
+| O que nos faz ganhar na indústria | Estoque no chão e prazo de entrega |
 | História | Tio em Londrina e Maringá; Joinville em 1994; 100% Gerdau no início; distribuidor ArcelorMittal desde 2004 |
 | Números liberados | Frota (sem número) e cidades atendidas |
 | Prazo de entrega no site | Não prometer |

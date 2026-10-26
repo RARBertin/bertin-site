@@ -100,6 +100,15 @@ Há ainda uma quarta camada, que é ruído de busca: empresas de São Paulo com 
 - A ArcelorMittal tem o serviço **Belgo Pronto** (aço cortado, dobrado e identificado pela posição na estrutura), prestado por parceiros acreditados ([AECweb](https://www.aecweb.com.br/produto/belgo-pronto/16751), [catálogo ArcelorMittal](https://brasil.arcelormittal.com/files/produtos-catalogos/5498b94b-982a-450e-a98f-d77850fa296c)). Grandes centrais nacionais, como Manetoni e Costa Ferro, vendem "armadura pronta" ([manetoni](https://manetoni.com.br/construcao-civil/corte-e-dobra-de-vergalhao-e-armadura-pronta/), [costaferro](https://costaferro.com.br/servicos/corte-e-dobra)).
 - A própria usina pode atender direto as obras grandes da região, o que pesa na escolha das mensagens (ver a seção 5).
 
+### 2.14 Indústria e planos em Joinville (resposta do Paulo Rene, 26/10/2026)
+A pesquisa na internet não cobriu esta frente. Quem disputa cliente com a gente, segundo o supervisor comercial da unidade de Joinville:
+- **Planos:** Dox do Brasil, Jefer, Panatlântica, Multiaços, Pires do Rio e Comercial Gerdau.
+- **Indústria (longos para metal mecânica):** Ciafal, Cipalam, Pires do Rio (entrando em longos), Comercial Gerdau e distribuidores independentes como Mkraft e Conte Aços.
+- **Tubos:** a Bertin quase não participa mais, então não há concorrente a apontar.
+- **Por que o cliente fica com eles:** preço, acima de tudo; depois prazo de pagamento, mix (muitas medidas) e serviço, porque muitos entregam o material cortado na medida. Alpe e AM Card dão prazo, mas as taxas pioram o preço.
+- **Por que ganhamos:** estoque no chão e prazo de entrega.
+- **O que fazer com isso:** não competir em preço nem em mix no site. Mostrar as linhas que temos (laminados a frio e a quente, perfis UDC, bobinas BGL) e levar ao vendedor. O corte na medida para planos é uma lacuna de serviço; vale perguntar se é viável antes de citar.
+
 ---
 
 ## 3. Matriz de mensagens

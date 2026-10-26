@@ -28,13 +28,14 @@ const whatsapp = (u) => `https://wa.me/${u.numero}?text=${MENSAGEM_COTACAO}`
 const whatsappProduto = (u, produto) =>
   `https://wa.me/${u.numero}?text=${encodeURIComponent(`Olá! Vim pelo site da Bertin e gostaria de uma cotação de ${produto}.`)}`
 
-// Linhas escolhidas pelo Raffael em 25/10/2026 (estratégia v2). Fotos do
+// Linhas escolhidas pelo Raffael em 25/10/2026 (estratégia v2); planos pelo
+// Paulo Rene em 26/10 (sem tubos, quase não vendemos mais). Fotos do
 // portal Conexão ArcelorMittal, recortadas em 800×500.
 const PRODUTOS = [
   { nome: 'Vergalhão CA‑50 e CA‑60', pedido: 'vergalhão CA-50 e CA-60', foto: fotoVergalhao, descricao: 'Barra e rolo com a marca ArcelorMittal gravada e certificado da usina.' },
   { nome: 'Corte e dobra', pedido: 'corte e dobra', foto: fotoCorteDobra, descricao: 'Vergalhão cortado e dobrado pelo seu projeto na nossa central de Chapecó, pronto para montar.' },
-  { nome: 'Chapas', pedido: 'chapas', foto: fotoChapas, descricao: 'Fina e grossa a quente, a frio, zincada e xadrez, para indústria e serralheria.' },
-  { nome: 'Bobinas', pedido: 'bobinas', foto: fotoBobinas, descricao: 'Aço plano em bobina para quem corta e conforma na própria fábrica.' },
+  { nome: 'Chapas e perfis', pedido: 'chapas e perfis', foto: fotoChapas, descricao: 'Chapa laminada a quente e a frio e perfil UDC, para indústria e serralheria.' },
+  { nome: 'Bobinas', pedido: 'bobinas', foto: fotoBobinas, descricao: 'Bobina BGL e laminada, para quem corta e conforma na própria fábrica.' },
 ]
 // Também vendemos, com menos destaque: cartão baixo, foto pequena ao lado
 const PRODUTOS_MAIS = [
@@ -370,7 +371,7 @@ export default function BertinLandingPage() {
 
             {[
               { nome: 'Construção Civil', descricao: 'Ferro e aço para todas as etapas da obra, com volume e prazo de entrega que acompanham o seu cronograma.' },
-              { nome: 'Indústria e Planos', descricao: 'Chapas, bobinas, tubos e barras com certificado de usina, com entrega programada para a sua produção.' },
+              { nome: 'Indústria e Planos', descricao: 'Chapas a quente e a frio, perfis UDC e bobinas BGL com certificado de usina, e estoque para a sua produção não parar.' },
               { nome: 'Atacado e Varejo', descricao: 'Do pedido em grande escala à compra pontual — atendimento flexível para atacadistas e varejistas de qualquer porte.' },
               { nome: 'Corte & Dobra', descricao: 'Aço cortado e dobrado pelo seu projeto na nossa central de Chapecó, com entrega também na região de Joinville.' },
             ].map((item) => (
