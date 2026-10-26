@@ -494,8 +494,8 @@ export default function BertinLandingPage() {
 
           <div className="mt-10 text-2xl font-medium">
             ou escreva para{' '}
-            <a href="mailto:contato@bertin.com.br?subject=Cota%C3%A7%C3%A3o%20pelo%20site" className="font-bold underline underline-offset-4">
-              contato@bertin.com.br
+            <a href="mailto:comercial@bertin.com.br?subject=Cota%C3%A7%C3%A3o%20pelo%20site" className="font-bold underline underline-offset-4">
+              comercial@bertin.com.br
             </a>
           </div>
         </div>
