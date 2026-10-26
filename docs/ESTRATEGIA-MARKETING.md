@@ -35,7 +35,7 @@ Versão 2, de 25/10/2026, **para aprovação do Raffael**. Já inclui as respost
 - "DBA" ou "Distribuidor Belgo Avançado". Hoje se diz **"Distribuidor ArcelorMittal"** ou **"ArcelorMittal Distribuição"**.
 - Prazo de entrega com número ou tempo de resposta no WhatsApp (ver a seção 6).
 
-A frase "Distribuidor exclusivo ArcelorMittal na sua região", que já está no site, pode continuar: ela fala da distribuição, não promete que o cliente só consegue comprar conosco.
+Sem "exclusivo": em 26/10/2026 o Raffael pediu para tirar a palavra do site, da prévia do link e da descrição para o Google. A frase fica "Distribuidor ArcelorMittal na sua região".
 
 ---
 
