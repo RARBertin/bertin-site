@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+# Link que a Cloudflare cria para esconder o e-mail de robôs de spam; para
+# o Google ele é um 404 sem importância.
+Disallow: /cdn-cgi/
 
 Sitemap: https://bertin.com.br/sitemap.xml
