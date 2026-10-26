@@ -154,7 +154,7 @@ export default function BertinLandingPage() {
             <p className="entra text-xl lg:text-2xl text-[#C9CDD0] leading-relaxed max-w-2xl mb-10" style={{ '--i': 2 }}>
               Empresa familiar com mais de 30 anos no mercado catarinense,
               atuando no fornecimento de ferro e aço para construção civil,
-              indústria, agropecuária, atacado e varejo.
+              indústria, atacado e varejo.
             </p>
 
             <div className="entra flex flex-wrap gap-4" style={{ '--i': 3 }}>
@@ -244,7 +244,7 @@ export default function BertinLandingPage() {
             </h2>
 
             <p className="text-2xl lg:text-3xl font-bold leading-snug max-w-2xl">
-              Distribuidor exclusivo ArcelorMittal na sua região: aço de usina,
+              Distribuidor ArcelorMittal na sua região: aço de usina,
               entregue por quem está perto.
             </p>
 
