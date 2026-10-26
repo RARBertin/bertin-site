@@ -68,7 +68,11 @@ Ordem de esforço: **construção civil** primeiro (60% a 70% das vendas), depoi
   - **Planos:** Dox do Brasil, Jefer, Panatlântica, Multiaços, Pires do Rio e Comercial Gerdau.
   - **Indústria (longos):** Ciafal, Cipalam, Pires do Rio (entrando em longos), Comercial Gerdau e distribuidores independentes como Mkraft e Conte Aços.
   - **Tubos:** não participamos mais, então não há concorrente a apontar.
-  - Falta a visão de Chapecó (José Carlos).
+  - **Chapecó e oeste (José Carlos, 26/10/2026), por importância:**
+    - Indústria, com unidade no oeste: Comercial Gerdau, Mkraft, Giassi e Costa Ferro. Sem unidade: Simec, Aços Continente e Indek‑Conte Aços.
+    - Planos, com unidade no oeste: Comercial Gerdau, Mkraft, Importadora Americana e Costa Ferro. Sem unidade: Dox, CSN, Usiminas, Gonvarri, Steel Corte, Tuper, Amazon Tubos, Aços Continente, Indek‑Conte Aços e Sampaio.
+    - Tubos, com unidade no oeste: Comercial Gerdau, Mkraft e Importadora Americana. Sem unidade: Tuper, Amazon Tubos e Indek‑Conte Aços.
+  - **Nos dois lados do estado:** Comercial Gerdau, Mkraft, Conte Aços (Indek) e Dox.
 
 ### 2.3 Revendas (atacado e varejo)
 
@@ -206,7 +210,7 @@ Quando houver medida, estas promessas viram o argumento mais forte contra a Gerd
 | Segmento que deve crescer | Construção civil; indústria e planos vêm ganhando mercado |
 | Por que nos escolhem | Prazo e entrega; corte e dobra |
 | Pontos fracos | Mix e preço (política comercial da AMB) |
-| Concorrentes principais | Comercial Gerdau, Giassi (aço importado), Scaini; em planos, Dox, Jefer, Panatlântica, Multiaços e Pires do Rio; em indústria, Ciafal, Cipalam, Mkraft e Conte Aços (Paulo Rene, Joinville) |
+| Concorrentes principais | Comercial Gerdau, Giassi (aço importado), Scaini; em planos, Dox, Jefer, Panatlântica, Multiaços e Pires do Rio; em indústria, Ciafal, Cipalam, Mkraft e Conte Aços (Paulo Rene, Joinville); no oeste, construção com Costa Ferro, Exact, Prime, Oeste Ferros e Dimatt, e usinas sem unidade (Sinobras, Simec, CSN, Aços Verde); indústria e planos com Mkraft, Costa Ferro e Importadora Americana (José Carlos, Chapecó) |
 | Linhas de planos no site | Laminados a frio e a quente, perfis UDC e bobinas BGL; tubos só se for preciso |
 | O que nos faz ganhar na indústria | Estoque no chão e prazo de entrega |
 | História | Tio em Londrina e Maringá; Joinville em 1994; 100% Gerdau no início; distribuidor ArcelorMittal desde 2004 |

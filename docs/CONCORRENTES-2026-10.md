@@ -109,6 +109,20 @@ A pesquisa na internet não cobriu esta frente. Quem disputa cliente com a gente
 - **Por que ganhamos:** estoque no chão e prazo de entrega.
 - **O que fazer com isso:** não competir em preço nem em mix no site. Mostrar as linhas que temos (laminados a frio e a quente, perfis UDC, bobinas BGL) e levar ao vendedor. O corte na medida para planos é uma lacuna de serviço; vale perguntar se é viável antes de citar.
 
+### 2.15 Chapecó e oeste por linha (resposta do José Carlos, 26/10/2026)
+Em ordem de importância. "Com unidade" = tem loja ou depósito no oeste; "sem unidade" = vende na região de fora.
+
+| Linha | Com unidade no oeste | Sem unidade no oeste |
+|---|---|---|
+| Construção civil | Comercial Gerdau, Giassi, Costa Ferro, Exact Aços, Prime Aços, Oeste Ferros, Dimatt Telas e Malhas | Sinobras, Simec, CSN, Aços Verde |
+| Indústria (metal mecânico) | Comercial Gerdau, Mkraft, Giassi, Costa Ferro | Simec, Aços Continente, Indek‑Conte Aços |
+| Planos | Comercial Gerdau, Mkraft, Importadora Americana, Costa Ferro | Dox, CSN, Usiminas, Gonvarri, Steel Corte, Tuper, Amazon Tubos, Aços Continente, Indek‑Conte Aços, Sampaio |
+| Tubos | Comercial Gerdau, Mkraft, Importadora Americana | Tuper, Amazon Tubos, Indek‑Conte Aços |
+
+- **O que muda na leitura:** a Costa Ferro (citada na 2.13 como central de corte e dobra) tem unidade no oeste e disputa construção, indústria e planos. Sinobras, Simec, CSN e Aços Verde são usinas que vendem direto na região, como a própria ArcelorMittal.
+- **Nos dois lados do estado** (Paulo Rene e José Carlos): Comercial Gerdau, Mkraft, Indek‑Conte Aços e Dox.
+- **O que fazer com isso:** o argumento contra quem vende de fora é o mesmo do site: estoque na região, entrega com frota própria e corte e dobra em Chapecó. Não citar concorrente pelo nome no site.
+
 ---
 
 ## 3. Matriz de mensagens
